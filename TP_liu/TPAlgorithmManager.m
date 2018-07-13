@@ -9,6 +9,8 @@
 
 #import "TPAlgorithmManager.h"
 #import "algorithm.h"
+#import "TPConfig.h"
+
 
 @implementation TPAlgorithmManager
 + (instancetype)manager {
@@ -21,10 +23,17 @@
 }
 
 - (void)testAlgorithm {
-    [self testBubbleSort];
-    [self testQuickSort];
+//    [self testBubbleSort];
+//    [self testQuickSort];
+    [self sigmoidFunc:10];
 }
 
+
+- (float)sigmoidFunc:(int)x {
+    float sigmoidValue = 1/(1 + log10(x)/M_LOG10E);
+        NSSLog(@"%s sigmoidValue:%@",__func__,@(sigmoidValue));
+    return  sigmoidValue;
+}
 
 - (void)testBubbleSort {
     NSLog(@"%s",__func__);

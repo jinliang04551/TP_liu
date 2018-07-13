@@ -172,9 +172,9 @@
                 [dicArray addObject:@{IS_DASH:@(0),POINTS:densnityPoints}];
                 densnityPoints = [NSMutableArray array];
                 [dashPoints addObject:points[i]];
-            }else if (i > dashRange.location && i < (dashRange.location + dashRange.length)){
+            }else if (i > dashRange.location && i < (dashRange.location + dashRange.length - 1)){
                 [dashPoints addObject:points[i]];
-            }else if (i == (dashRange.location + dashRange.length)){
+            }else if (i == (dashRange.location + dashRange.length - 1 )){
                 [dashPoints addObject:points[i]];
                 [dicArray addObject:@{IS_DASH:@(1),POINTS:dashPoints}];
                 dashPoints = [NSMutableArray array];
