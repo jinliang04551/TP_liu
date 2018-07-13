@@ -7,15 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A0D0EB820E217D900CEEABF /* JLUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D0EB720E217D900CEEABF /* JLUtil.m */; };
+		5A6A35D320F6E8B200A91097 /* TPTestDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6A35D220F6E8B200A91097 /* TPTestDrawView.m */; };
 		5AE9C3F120BF90A600BDAE3A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9C3F020BF90A600BDAE3A /* AppDelegate.m */; };
 		5AE9C3F420BF90A600BDAE3A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9C3F320BF90A600BDAE3A /* ViewController.m */; };
 		5AE9C3F720BF90A600BDAE3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AE9C3F520BF90A600BDAE3A /* Main.storyboard */; };
 		5AE9C3F920BF90A900BDAE3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AE9C3F820BF90A900BDAE3A /* Assets.xcassets */; };
 		5AE9C3FC20BF90A900BDAE3A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AE9C3FA20BF90A900BDAE3A /* LaunchScreen.storyboard */; };
 		5AE9C3FF20BF90A900BDAE3A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9C3FE20BF90A900BDAE3A /* main.m */; };
+		5AE9C40720BF90BA00BDAE3A /* MISTestBlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9C40520BF90BA00BDAE3A /* MISTestBlockView.m */; };
+		5AE9C40F20BFD8F500BDAE3A /* UIView+CurrentTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9C40E20BFD8F500BDAE3A /* UIView+CurrentTime.m */; };
+		5AE9C41A20C53D4800BDAE3A /* TPAlgorithmManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9C41920C53D4800BDAE3A /* TPAlgorithmManager.m */; };
+		5AE9C41C20C5451000BDAE3A /* algorithm.c in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9C41520C53BA900BDAE3A /* algorithm.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A0D0EB620E217D900CEEABF /* JLUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JLUtil.h; sourceTree = "<group>"; };
+		5A0D0EB720E217D900CEEABF /* JLUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JLUtil.m; sourceTree = "<group>"; };
+		5A6A35D120F6E8B200A91097 /* TPTestDrawView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTestDrawView.h; sourceTree = "<group>"; };
+		5A6A35D220F6E8B200A91097 /* TPTestDrawView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTestDrawView.m; sourceTree = "<group>"; };
+		5A6A35D520F6F13C00A91097 /* TPConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPConfig.h; sourceTree = "<group>"; };
 		5AE9C3EC20BF90A600BDAE3A /* TP_liu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TP_liu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AE9C3EF20BF90A600BDAE3A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5AE9C3F020BF90A600BDAE3A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -26,6 +37,14 @@
 		5AE9C3FB20BF90A900BDAE3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5AE9C3FD20BF90A900BDAE3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5AE9C3FE20BF90A900BDAE3A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5AE9C40520BF90BA00BDAE3A /* MISTestBlockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MISTestBlockView.m; sourceTree = "<group>"; };
+		5AE9C40620BF90BA00BDAE3A /* MISTestBlockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MISTestBlockView.h; sourceTree = "<group>"; };
+		5AE9C40D20BFD8F500BDAE3A /* UIView+CurrentTime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+CurrentTime.h"; sourceTree = "<group>"; };
+		5AE9C40E20BFD8F500BDAE3A /* UIView+CurrentTime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+CurrentTime.m"; sourceTree = "<group>"; };
+		5AE9C41520C53BA900BDAE3A /* algorithm.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = algorithm.c; sourceTree = "<group>"; };
+		5AE9C41620C53BA900BDAE3A /* algorithm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = algorithm.h; sourceTree = "<group>"; };
+		5AE9C41820C53D4800BDAE3A /* TPAlgorithmManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAlgorithmManager.h; sourceTree = "<group>"; };
+		5AE9C41920C53D4800BDAE3A /* TPAlgorithmManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAlgorithmManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +58,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A6A35D420F6E8C500A91097 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5AE9C3F220BF90A600BDAE3A /* ViewController.h */,
+				5AE9C3F320BF90A600BDAE3A /* ViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		5A6A35D620F6F1A500A91097 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				5AE9C3EF20BF90A600BDAE3A /* AppDelegate.h */,
+				5AE9C3F020BF90A600BDAE3A /* AppDelegate.m */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
 		5AE9C3E320BF90A600BDAE3A = {
 			isa = PBXGroup;
 			children = (
@@ -58,10 +95,17 @@
 		5AE9C3EE20BF90A600BDAE3A /* TP_liu */ = {
 			isa = PBXGroup;
 			children = (
-				5AE9C3EF20BF90A600BDAE3A /* AppDelegate.h */,
-				5AE9C3F020BF90A600BDAE3A /* AppDelegate.m */,
-				5AE9C3F220BF90A600BDAE3A /* ViewController.h */,
-				5AE9C3F320BF90A600BDAE3A /* ViewController.m */,
+				5A6A35D620F6F1A500A91097 /* Global */,
+				5A6A35D420F6E8C500A91097 /* ViewController */,
+				5AE9C40920BFD88700BDAE3A /* Categories */,
+				5A6A35D520F6F13C00A91097 /* TPConfig.h */,
+				5AE9C41620C53BA900BDAE3A /* algorithm.h */,
+				5AE9C41520C53BA900BDAE3A /* algorithm.c */,
+				5AE9C41820C53D4800BDAE3A /* TPAlgorithmManager.h */,
+				5AE9C41920C53D4800BDAE3A /* TPAlgorithmManager.m */,
+				5A0D0EB620E217D900CEEABF /* JLUtil.h */,
+				5A0D0EB720E217D900CEEABF /* JLUtil.m */,
+				5AE9C40820BF90C100BDAE3A /* Views */,
 				5AE9C3F520BF90A600BDAE3A /* Main.storyboard */,
 				5AE9C3F820BF90A900BDAE3A /* Assets.xcassets */,
 				5AE9C3FA20BF90A900BDAE3A /* LaunchScreen.storyboard */,
@@ -69,6 +113,26 @@
 				5AE9C3FE20BF90A900BDAE3A /* main.m */,
 			);
 			path = TP_liu;
+			sourceTree = "<group>";
+		};
+		5AE9C40820BF90C100BDAE3A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5AE9C40620BF90BA00BDAE3A /* MISTestBlockView.h */,
+				5AE9C40520BF90BA00BDAE3A /* MISTestBlockView.m */,
+				5A6A35D120F6E8B200A91097 /* TPTestDrawView.h */,
+				5A6A35D220F6E8B200A91097 /* TPTestDrawView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5AE9C40920BFD88700BDAE3A /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				5AE9C40D20BFD8F500BDAE3A /* UIView+CurrentTime.h */,
+				5AE9C40E20BFD8F500BDAE3A /* UIView+CurrentTime.m */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,9 +205,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A6A35D320F6E8B200A91097 /* TPTestDrawView.m in Sources */,
+				5AE9C41C20C5451000BDAE3A /* algorithm.c in Sources */,
+				5AE9C40720BF90BA00BDAE3A /* MISTestBlockView.m in Sources */,
 				5AE9C3F420BF90A600BDAE3A /* ViewController.m in Sources */,
 				5AE9C3FF20BF90A900BDAE3A /* main.m in Sources */,
 				5AE9C3F120BF90A600BDAE3A /* AppDelegate.m in Sources */,
+				5AE9C40F20BFD8F500BDAE3A /* UIView+CurrentTime.m in Sources */,
+				5AE9C41A20C53D4800BDAE3A /* TPAlgorithmManager.m in Sources */,
+				5A0D0EB820E217D900CEEABF /* JLUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
