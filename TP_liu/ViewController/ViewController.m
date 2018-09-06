@@ -32,10 +32,19 @@
 @end
 
 @implementation ViewController
+- (void)loadView {
+    NSLog(@"%s",__func__);
+    UIView * view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    view.backgroundColor = [UIColor blueColor];
+    self.view = view;
+
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    NSLog(@"%s",__func__);
+    NSLog(@"%p",self.view);
+
 //    MISTestBlockView *blockView = [MISTestBlockView new];
 //    [blockView testFunc];
     
@@ -48,6 +57,7 @@
     
 //    [self testDrawMutiPathView];
     
+//    NSLog(@"%@",NSHomeDirectory());
 }
 
 - (void)testDrawMutiPathView {
