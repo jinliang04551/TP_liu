@@ -34,8 +34,8 @@ static const int MAX_HEARTBEAT_RATE = 220; //最大心率
 }
 
 - (void)testAlgorithm {
-//    [self testBubbleSort];
-//    [self testQuickSort];
+    [self testBubbleSort];
+    [self testQuickSort];
   
 
 }
