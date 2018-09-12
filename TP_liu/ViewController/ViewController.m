@@ -45,7 +45,7 @@
     
 //    [self testFunc];
 //    [self asyncMain];
-//    [self testOperationQueue];
+    [self testOperationQueue];
 //    [self threadTest];
 //    [self testNSTimer];
 //    [self testString];
@@ -54,18 +54,8 @@
     
 //    NSLog(@"%@",NSHomeDirectory());
     
-    NSSLog(@"++++1+++++");
-
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        NSSLog(@"++++2+++++");
-        dispatch_async(dispatch_get_main_queue(), ^{
-            NSSLog(@"++++3+++++");
-        });
-        NSSLog(@"++++4+++++");
-
-    });
-    NSSLog(@"++++5+++++");
-
+//    [self asyn_barrier];
+//    [self testGroup];
 }
 
 
@@ -196,13 +186,52 @@
         }
     }];
     
+    [blockOperation addExecutionBlock:^{
+        NSLog(@" addExecutionBlock 1把任务添加到队列======%@", [NSThread currentThread]);
+    }];
+    
+    [blockOperation addExecutionBlock:^{
+        NSLog(@" addExecutionBlock 2把任务添加到队列======%@", [NSThread currentThread]);
+    }];
+    
+//    [invocationOperation start];
+//    [blockOperation start];
+    
     [queue addOperation:invocationOperation];
     [queue addOperation:blockOperation];
+    
+    [queue cancelAllOperations];
+    
 }
 
 
 - (void)invocationOperationAddOperation {
     NSLog(@"invocationOperation===aaddOperation把任务添加到队列====%@", [NSThread currentThread]);
+}
+
+/** 主队列同步 */
+- (void)syncMain {
+    
+    NSLog(@"\n\n**************主队列同步，放到主线程会死锁***************\n\n");
+    
+    // 主队列
+    dispatch_queue_t queue = dispatch_get_main_queue();
+    
+    dispatch_sync(queue, ^{
+        for (int i = 0; i < 3; i++) {
+            NSLog(@"主队列同步1   %@",[NSThread currentThread]);
+        }
+    });
+    dispatch_sync(queue, ^{
+        for (int i = 0; i < 3; i++) {
+            NSLog(@"主队列同步2   %@",[NSThread currentThread]);
+        }
+    });
+    dispatch_sync(queue, ^{
+        for (int i = 0; i < 3; i++) {
+            NSLog(@"主队列同步3   %@",[NSThread currentThread]);
+        }
+    });
 }
 
 /** 主队列异步 */
@@ -228,6 +257,59 @@
             NSLog(@"主队列异步3   %@",[NSThread currentThread]);
         }
     });
+    
+}
+
+- (void)asyn_barrier {
+    dispatch_queue_t queue = dispatch_queue_create("test",DISPATCH_QUEUE_CONCURRENT);
+    
+    dispatch_async(queue, ^{
+        for (int i = 0; i < 3; ++i) {
+            NSLog(@"栅栏 并发异步1%@",[NSThread currentThread]);
+        }
+    });
+    
+    dispatch_async(queue, ^{
+        for (int i = 0; i < 3; ++i) {
+            NSLog(@"栅栏 并发异步2%@",[NSThread currentThread]);
+        }
+    });
+    
+    dispatch_barrier_async(queue, ^{
+        NSLog(@"栅栏 并发异步%@",[NSThread currentThread]);
+        NSSLog(@"3,4一定是在1，2之后");
+    });
+    
+    dispatch_async(queue, ^{
+        for (int i = 0; i < 3; ++i) {
+            NSLog(@"栅栏 并发异步3%@",[NSThread currentThread]);
+        }
+    });
+    
+    dispatch_async(queue, ^{
+        for (int i = 0; i < 3; ++i) {
+            NSLog(@"栅栏 并发异步4%@",[NSThread currentThread]);
+        }
+    });
+    
+}
+
+- (void)testGroup {
+    dispatch_group_t group = dispatch_group_create();
+    dispatch_group_async(group, dispatch_get_global_queue(0, 0), ^{
+        NSLog(@"队列组：有一个耗时操作完成！");
+    });
+    dispatch_group_async(group, dispatch_get_global_queue(0, 0), ^{
+        NSLog(@"队列组：有一个耗时操作完成！");
+    });
+    
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        NSLog(@"刷新UI");
+    });
+}
+
+- (void)testSinal {
+    //信号量机制
     
 }
 
