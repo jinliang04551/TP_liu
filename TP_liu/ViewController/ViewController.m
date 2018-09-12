@@ -11,6 +11,13 @@
 #import "TPTestDrawView.h"
 #import "TPConfig.h"
 
+
+//信号量机制article
+/*
+ *
+ * https://www.jianshu.com/p/05be855d654d
+ */
+
 @interface HLThread : NSThread
 
 @end
@@ -45,7 +52,7 @@
     
 //    [self testFunc];
 //    [self asyncMain];
-    [self testOperationQueue];
+//    [self testOperationQueue];
 //    [self threadTest];
 //    [self testNSTimer];
 //    [self testString];
@@ -56,6 +63,8 @@
     
 //    [self asyn_barrier];
 //    [self testGroup];
+    
+    [self testSinal];
 }
 
 
@@ -160,16 +169,16 @@
 
 
 - (void)testFunc {
-//    /** 方法一，需要start */
-//NSThread *thread1 = [[NSThread alloc] initWithTarget:self selector:@selector(doSomething1:) object:@"NSThread1"];
-//    // 线程加入线程池等待CPU调度，时间很快，几乎是立刻执行
-//    [thread1 start];
-//
-//    /** 方法二，创建好之后自动启动 */
-//    [NSThread detachNewThreadSelector:@selector(doSomething2:) toTarget:self withObject:@"NSThread2"];
-//
-//    /** 方法三，隐式创建，直接启动 */
-//   [self performSelectorInBackground:@selector(doSomething3:) withObject:@"NSThread3"];
+    /** 方法一，需要start */
+NSThread *thread1 = [[NSThread alloc] initWithTarget:self selector:@selector(doSomething1:) object:@"NSThread1"];
+    // 线程加入线程池等待CPU调度，时间很快，几乎是立刻执行
+    [thread1 start];
+
+    /** 方法二，创建好之后自动启动 */
+    [NSThread detachNewThreadSelector:@selector(doSomething2:) toTarget:self withObject:@"NSThread2"];
+
+    /** 方法三，隐式创建，直接启动 */
+   [self performSelectorInBackground:@selector(doSomething3:) withObject:@"NSThread3"];
 
 }
 
@@ -309,7 +318,88 @@
 }
 
 - (void)testSinal {
-    //信号量机制
+//    //信号量机制
+//    dispatch_semaphore_t signal = dispatch_semaphore_create(0);
+//    __block long x = 0;
+//    NSLog(@"0_x:%@",@(x));
+//
+//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//        sleep(1);
+//        NSLog(@"waiting");
+//
+//        x = dispatch_semaphore_signal(signal);
+//        NSLog(@"1_x:%ld",x);
+//
+//        sleep(2);
+//        NSLog(@"waking");
+//
+//        x = dispatch_semaphore_wait(signal, DISPATCH_TIME_FOREVER);
+//        NSLog(@"2_x:%ld",x);
+//
+//    });
+//
+//    //此时信号量为1 所以执行下边，对signal减掉1，然后信号量为0
+//    x = dispatch_semaphore_wait(signal, DISPATCH_TIME_FOREVER);
+//    NSLog(@"3_x:%ld",x);
+//
+//    //此时信号量为0，永远等待，在等待的时候执行block了，在等待block时候block内对信号量增加了1，然后开始执行下边，并且信号量再次减掉1 变为0
+//    x = dispatch_semaphore_wait(signal, DISPATCH_TIME_FOREVER);
+//    NSLog(@"wait 2");
+//    NSLog(@"4_x:%ld",x);
+//
+//    //此时信号量为0，永远等待，在等待的时候执行block了，在等待block时候block内对信号量增加了1，然后开始执行下边，并且信号量再次减掉1 变为0
+//    x = dispatch_semaphore_wait(signal, DISPATCH_TIME_FOREVER);
+//
+//    NSLog(@"wait 3");
+//    NSLog(@"5_x:%ld",x);
+//
+//    sleep(2);
+//
+//    x = dispatch_semaphore_signal(signal);
+//    NSLog(@"6_x:%ld",x);
+
+    
+    //创建一个为1信号量的信号
+    // 打印输出：<OS_dispatch_semaphore: semaphore[0x174099b40] = { xrefcnt = 0x1, refcnt = 0x1, port = 0x0, value = 1, orig = 1 }>
+    dispatch_semaphore_t signal = dispatch_semaphore_create(1);
+    
+    __block long x = 0;
+    NSLog(@"0_x:%ld",x);
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        sleep(1);
+        NSLog(@"waiting");
+        
+        //此时信号量为0 对signal增加1 信号量变为1，
+        x = dispatch_semaphore_signal(signal);
+        NSLog(@"1_x:%ld",x);
+        
+        sleep(2);
+        NSLog(@"waking");
+        
+        x = dispatch_semaphore_signal(signal);
+        NSLog(@"2_x:%ld",x);
+    });
+    
+    //此时信号量为1 所以执行下边，对signal减掉1，然后信号量为0
+    x = dispatch_semaphore_wait(signal, DISPATCH_TIME_FOREVER);
+    NSLog(@"3_x:%ld",x);
+    
+    //此时信号量为0，永远等待，在等待的时候执行block了，在等待block时候block内对信号量增加了1，然后开始执行下边，并且信号量再次减掉1 变为0
+    x = dispatch_semaphore_wait(signal, DISPATCH_TIME_FOREVER);
+    NSLog(@"wait 2");
+    NSLog(@"4_x:%ld",x);
+    
+    //此时信号量为0，永远等待，在等待的时候执行block了，在等待block时候block内对信号量增加了1，然后开始执行下边，并且信号量再次减掉1 变为0
+    x = dispatch_semaphore_wait(signal, DISPATCH_TIME_FOREVER);
+    
+    NSLog(@"wait 3");
+    NSLog(@"5_x:%ld",x);
+    
+    sleep(2);
+    
+    x = dispatch_semaphore_signal(signal);
+    NSLog(@"6_x:%ld",x);
     
 }
 
