@@ -39,6 +39,7 @@
     NSLog(@"%s",__func__);
     NSLog(@"%p",self.view);
 
+  
 //    MISTestBlockView *blockView = [MISTestBlockView new];
 //    [blockView testFunc];
     
@@ -52,7 +53,22 @@
 //    [self testDrawMutiPathView];
     
 //    NSLog(@"%@",NSHomeDirectory());
+    
+    NSSLog(@"++++1+++++");
+
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        NSSLog(@"++++2+++++");
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSSLog(@"++++3+++++");
+        });
+        NSSLog(@"++++4+++++");
+
+    });
+    NSSLog(@"++++5+++++");
+
 }
+
+
 
 - (void)testDrawMutiPathView {
     TPTestDrawView *drawView = [[TPTestDrawView alloc] initWithFrame:CGRectMake(0, 0, 400.0, 300.0f)];
