@@ -39,9 +39,10 @@ Node * initList() {
     return linkHead;
 }
 
-void reverseLinkList() {
-    
-}
+//Node * reverseLinkList(Node *linkList) {
+//
+//
+//}
 
 void displayLinkList(Node *node){
     Node *tempNode = node;
@@ -55,20 +56,20 @@ void displayLinkList(Node *node){
 }
 
 
-//    ListNode* ReverseList(ListNode* pHead) {
-//          ListNode *root=pHead;
-//         ListNode *pre=NULL;
-//         ListNode *next=NULL;
-//         if(pHead==NULL) return NULL;
-//     while(root->next){
-//          next=root->next;
-//          root->next=pre;
-//          pre=root;
-//         root=next;
-//     }
-//         root->next=pre;
-//         return root;
-//     }
+Node * reverseList(Node* pHead) {
+      Node *root=pHead;
+     Node *pre=NULL;
+     Node *next=NULL;
+     if(pHead==NULL) return NULL;
+ while(root->next){
+      next=root->next;
+      root->next=pre;
+      pre=root;
+     root=next;
+ }
+     root->next=pre;
+     return root;
+ }
 
 void singleList_main(){
    Node *linkList = initList();
