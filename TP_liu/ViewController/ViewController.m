@@ -64,7 +64,26 @@
 //    [self asyn_barrier];
 //    [self testGroup];
     
-    [self testSinal];
+//    [self testSinal];
+    
+//    [self testSingal2];
+    
+    NSSLog(@"========1=====");
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        sleep(1);
+        NSSLog(@"========2=====");
+        sleep(1);
+        NSSLog(@"========3=====");
+
+    });
+    
+    NSSLog(@"========4=====");
+    sleep(2);
+    NSSLog(@"========5=====");
+    
+    NSSLog(@"========6=====");
+
+
 }
 
 
@@ -318,47 +337,6 @@ NSThread *thread1 = [[NSThread alloc] initWithTarget:self selector:@selecto
 }
 
 - (void)testSinal {
-//    //信号量机制
-//    dispatch_semaphore_t signal = dispatch_semaphore_create(0);
-//    __block long x = 0;
-//    NSLog(@"0_x:%@",@(x));
-//
-//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-//        sleep(1);
-//        NSLog(@"waiting");
-//
-//        x = dispatch_semaphore_signal(signal);
-//        NSLog(@"1_x:%ld",x);
-//
-//        sleep(2);
-//        NSLog(@"waking");
-//
-//        x = dispatch_semaphore_wait(signal, DISPATCH_TIME_FOREVER);
-//        NSLog(@"2_x:%ld",x);
-//
-//    });
-//
-//    //此时信号量为1 所以执行下边，对signal减掉1，然后信号量为0
-//    x = dispatch_semaphore_wait(signal, DISPATCH_TIME_FOREVER);
-//    NSLog(@"3_x:%ld",x);
-//
-//    //此时信号量为0，永远等待，在等待的时候执行block了，在等待block时候block内对信号量增加了1，然后开始执行下边，并且信号量再次减掉1 变为0
-//    x = dispatch_semaphore_wait(signal, DISPATCH_TIME_FOREVER);
-//    NSLog(@"wait 2");
-//    NSLog(@"4_x:%ld",x);
-//
-//    //此时信号量为0，永远等待，在等待的时候执行block了，在等待block时候block内对信号量增加了1，然后开始执行下边，并且信号量再次减掉1 变为0
-//    x = dispatch_semaphore_wait(signal, DISPATCH_TIME_FOREVER);
-//
-//    NSLog(@"wait 3");
-//    NSLog(@"5_x:%ld",x);
-//
-//    sleep(2);
-//
-//    x = dispatch_semaphore_signal(signal);
-//    NSLog(@"6_x:%ld",x);
-
-    
     //创建一个为1信号量的信号
     // 打印输出：<OS_dispatch_semaphore: semaphore[0x174099b40] = { xrefcnt = 0x1, refcnt = 0x1, port = 0x0, value = 1, orig = 1 }>
     dispatch_semaphore_t signal = dispatch_semaphore_create(1);
@@ -400,6 +378,10 @@ NSThread *thread1 = [[NSThread alloc] initWithTarget:self selector:@selecto
     
     x = dispatch_semaphore_signal(signal);
     NSLog(@"6_x:%ld",x);
+    
+}
+
+- (void)testSingal2 {
     
 }
 

@@ -10,6 +10,8 @@
 #import "TPAlgorithmManager.h"
 #import "algorithm.h"
 #import "TPConfig.h"
+#import "SingleLinkList.h"
+
 
 #define BEGIN_HEART_BEAT_WARNING_RATIO 0.65
 #define STOP_HEART_BEAT_WARNING_RATIO  0.60
@@ -34,9 +36,9 @@ static const int MAX_HEARTBEAT_RATE = 220; //最大心率
 }
 
 - (void)testAlgorithm {
-    [self testBubbleSort];
-    [self testQuickSort];
-  
+//    [self testBubbleSort];
+//    [self testQuickSort];
+    [self testSingleList];
 
 }
 
@@ -70,9 +72,19 @@ static const int MAX_HEARTBEAT_RATE = 220; //最大心率
         printf("i:%d value:%d\n",i,a[i]);
     }
     
-   int pos = binarySearch(a, len, 29);
+   int pos = binarySearch(a, len, 5);
     printf("pos:%d \n",pos);
 
+}
+
+
+- (void)testSingleList {
+    NSSLog(@"==============================================");
+    NSSLog(@"==============================================");
+    NSSLog(@"==============================================");
+
+    singleList_main();
+    
 }
 
 @end
