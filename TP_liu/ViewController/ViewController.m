@@ -10,7 +10,7 @@
 #import "MISTestBlockView.h"
 #import "TPTestDrawView.h"
 #import "TPConfig.h"
-
+#import <objc/objc.h>
 
 //信号量机制article
 /*
@@ -68,25 +68,32 @@
     
 //    [self testSingal2];
     
-    NSSLog(@"========1=====");
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        sleep(1);
-        NSSLog(@"========2=====");
-        sleep(1);
-        NSSLog(@"========3=====");
+//    NSSLog(@"========1=====");
+//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//        sleep(1);
+//        NSSLog(@"========2=====");
+//        sleep(1);
+//        NSSLog(@"========3=====");
+//
+//    });
+//
+//    NSSLog(@"========4=====");
+//    sleep(2);
+//    NSSLog(@"========5=====");
+//
+//    NSSLog(@"========6=====");
 
-    });
-    
-    NSSLog(@"========4=====");
-    sleep(2);
-    NSSLog(@"========5=====");
-    
-    NSSLog(@"========6=====");
-
-
+    [self testNSLocale];
 }
 
+- (void)testNSLocale {
+    NSLocale *local = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+    NSString *currentCode  = local.currencyCode;
+    NSString *countryCode = local.countryCode;
+    NSSLog(@"currentCode:%@",currentCode);
+    NSSLog(@"NSArray:%@",countryCode);
 
+}
 
 - (void)testDrawMutiPathView {
     TPTestDrawView *drawView = [[TPTestDrawView alloc] initWithFrame:CGRectMake(0, 0, 400.0, 300.0f)];
@@ -119,7 +126,7 @@
     NSLog(@"str8 address: %p value:%@",str8,str8);
     NSLog(@"mustr1 address: %p value:%@",mustr1,mustr1);
 
-
+    
 }
 
 - (void)testNSTimer {

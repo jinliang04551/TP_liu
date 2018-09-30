@@ -23,6 +23,7 @@
     };
     a = 2;
     testBlock();
+    
 }
 
 @end
