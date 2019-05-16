@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		5A0D0EB820E217D900CEEABF /* JLUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D0EB720E217D900CEEABF /* JLUtil.m */; };
 		5A0D109021413291005FE672 /* SingleLinkList.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D108E21413291005FE672 /* SingleLinkList.c */; };
-		5A38B7D62160B8E4009E032E /* TPSocketClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A38B7D42160B8E4009E032E /* TPSocketClient.cpp */; };
-		5A38B7D92160B900009E032E /* TPSocketServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A38B7D72160B900009E032E /* TPSocketServer.cpp */; };
 		5A6A35D320F6E8B200A91097 /* TPTestDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6A35D220F6E8B200A91097 /* TPTestDrawView.m */; };
 		5AE9C3F120BF90A600BDAE3A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9C3F020BF90A600BDAE3A /* AppDelegate.m */; };
 		5AE9C3F420BF90A600BDAE3A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9C3F320BF90A600BDAE3A /* ViewController.m */; };
@@ -231,12 +229,10 @@
 				5A6A35D320F6E8B200A91097 /* TPTestDrawView.m in Sources */,
 				5AE9C41C20C5451000BDAE3A /* algorithm.c in Sources */,
 				5AE9C40720BF90BA00BDAE3A /* MISTestBlockView.m in Sources */,
-				5A38B7D92160B900009E032E /* TPSocketServer.cpp in Sources */,
 				5AE9C3F420BF90A600BDAE3A /* ViewController.m in Sources */,
 				5AE9C3FF20BF90A900BDAE3A /* main.m in Sources */,
 				5AE9C3F120BF90A600BDAE3A /* AppDelegate.m in Sources */,
 				5AE9C40F20BFD8F500BDAE3A /* UIView+CurrentTime.m in Sources */,
-				5A38B7D62160B8E4009E032E /* TPSocketClient.cpp in Sources */,
 				5AE9C41A20C53D4800BDAE3A /* TPAlgorithmManager.m in Sources */,
 				5A0D0EB820E217D900CEEABF /* JLUtil.m in Sources */,
 				5A0D109021413291005FE672 /* SingleLinkList.c in Sources */,

@@ -39,10 +39,7 @@ Node * initList() {
     return linkHead;
 }
 
-//Node * reverseLinkList(Node *linkList) {
-//
-//
-//}
+
 
 void displayLinkList(Node *node){
     Node *tempNode = node;
@@ -51,8 +48,8 @@ void displayLinkList(Node *node){
         tempNode = tempNode->next;
         printf("\n");
     }
+
     printf("打印结束\n");
-    
 }
 
 

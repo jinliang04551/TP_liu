@@ -55,7 +55,7 @@
 //    [self testOperationQueue];
 //    [self threadTest];
 //    [self testNSTimer];
-//    [self testString];
+    [self testString];
     
 //    [self testDrawMutiPathView];
     
@@ -86,6 +86,7 @@
     [self testNSLocale];
 }
 
+
 - (void)testNSLocale {
     NSLocale *local = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
     NSString *currentCode  = local.currencyCode;
@@ -105,26 +106,35 @@
     NSString *str1 = @"abc";
     NSString *str2 = @"abc";
     NSString *str3 = [[NSString alloc] initWithFormat:@"abc"];
+    NSString *str31 = [[NSString alloc] initWithString:@"abc"];
     NSString *str4 = [str1 copy];
     NSString *str5 = [str1 mutableCopy];
     NSString *str6 = [NSString stringWithString:@"abc"];
-
+    NSString *str61 = [NSString stringWithFormat:@"abc"];
     NSMutableString *mustr1 = [NSMutableString stringWithString:@"123"];
     NSString *str7 = [mustr1 copy];
     NSString *str8 = mustr1;
     [mustr1 appendString:@"456"];
     
-    
+    NSMutableString *str9 = [NSMutableString stringWithString:@"abc"];
+    NSString *str10 = [[NSMutableString alloc] initWithString:@"abc"];
+    NSString *str11 = [[NSMutableString alloc] initWithString:@"abc"];
+
     
     NSLog(@"str1 address: %p",str1);
     NSLog(@"str2 address: %p",str2);
     NSLog(@"str3 address: %p",str3);
+    NSLog(@"str31 address: %p",str31);
     NSLog(@"str4 address: %p",str4);
     NSLog(@"str5 address: %p",str5);
     NSLog(@"str6 address: %p",str6);
+    NSLog(@"str61 address: %p",str61);
     NSLog(@"str7 address: %p value:%@",str7,str7);
     NSLog(@"str8 address: %p value:%@",str8,str8);
     NSLog(@"mustr1 address: %p value:%@",mustr1,mustr1);
+    NSLog(@"str9 address: %p",str9);
+    NSLog(@"str10 address: %p",str10);
+    NSLog(@"str11 address: %p",str11);
 
     
 }
