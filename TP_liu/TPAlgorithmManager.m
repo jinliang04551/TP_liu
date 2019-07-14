@@ -11,7 +11,7 @@
 #import "algorithm.h"
 #import "TPConfig.h"
 #import "SingleLinkList.h"
-
+#import <libkern/OSSpinLockDeprecated.h>
 
 #define BEGIN_HEART_BEAT_WARNING_RATIO 0.65
 #define STOP_HEART_BEAT_WARNING_RATIO  0.60
@@ -84,7 +84,58 @@ static const int MAX_HEARTBEAT_RATE = 220; //最大心率
     NSSLog(@"==============================================");
 
     singleList_main();
+    [self testLock];
+}
+
+
+- (void)testLock {
+    [self testRecursiveLock];
+    [self testSpinLock];
+}
+
+- (void)testRecursiveLock {
+    NSSLog(@"%s",__func__);
+//    NSLock *lock = [[NSLock alloc] init];
+    NSRecursiveLock *lock = [[NSRecursiveLock alloc] init];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        static void (^RecursiveMethod) (int);
+        RecursiveMethod = ^(int value) {
+            [lock lock];
+            if (value > 0) {
+                NSLog(@"value = %d",value);
+                sleep(1);
+                RecursiveMethod(value -1);
+            }
+            [lock unlock];
+        };
+        RecursiveMethod(5);
+    });
     
+}
+
+
+/**
+ 自旋锁
+ */
+- (void)testSpinLock {
+    __block OSSpinLock theLock = OS_SPINLOCK_INIT;
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        OSSpinLockLock(&theLock);
+        NSLog(@"需要线程同步的操作1 开始");
+        sleep(3);
+        NSLog(@"需要线程同步的操作1 结束");
+        OSSpinLockUnlock(&theLock);
+    });
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        OSSpinLockLock(&theLock);
+        sleep(1);
+        NSLog(@"需要线程同步的操作2");
+        OSSpinLockUnlock(&theLock);
+        
+    });
+
 }
 
 @end
