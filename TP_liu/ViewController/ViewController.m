@@ -11,6 +11,7 @@
 #import "TPTestDrawView.h"
 #import "TPConfig.h"
 #import <objc/objc.h>
+#import <objc/runtime.h>
 
 //信号量机制article
 /*
@@ -39,6 +40,33 @@
 @end
 
 @implementation ViewController
++ (void)load {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        Class class = [self class];
+        SEL originalSelector = @selector(viewDidLoad);
+        SEL swizzledSelector = @selector(jkviewDidLoad);
+        
+        Method originalMethod = class_getInstanceMethod(class,originalSelector);
+        Method swizzledMethod = class_getInstanceMethod(class,swizzledSelector);
+        
+        //judge the method named  swizzledMethod is already existed.
+        BOOL didAddMethod = class_addMethod(class, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod));
+        // if swizzledMethod is already existed.
+        if (didAddMethod) {
+            class_replaceMethod(class, swizzledSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod));
+        }
+        else {
+            method_exchangeImplementations(originalMethod, swizzledMethod);
+        }
+    });
+}
+
+- (void)jkviewDidLoad {
+    NSLog(@"替换的方法");
+    
+    [self jkviewDidLoad];
+}
 
 
 - (void)viewDidLoad {
