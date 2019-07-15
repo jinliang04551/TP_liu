@@ -83,7 +83,7 @@
 //    [self testOperationQueue];
 //    [self threadTest];
 //    [self testNSTimer];
-    [self testString];
+//    [self testString];
     
 //    [self testDrawMutiPathView];
     
@@ -111,7 +111,22 @@
 //
 //    NSSLog(@"========6=====");
 
-    [self testNSLocale];
+    [self testCopyMutableCopy];
+}
+
+- (void)testCopyMutableCopy {
+    NSString *str1 = @"abc";
+    NSString *str2 = [str1 copy];
+    NSString *str3 = [str1 mutableCopy];
+    NSMutableString *str4 = [str1 copy];
+    NSMutableString *str5 = [str1 mutableCopy];
+    
+    NSSLog(@"str1 address:%p", str1);
+    NSSLog(@"str2 address:%p", str2);
+    NSSLog(@"str3 address:%p", str3);
+    NSSLog(@"str4 address:%p", str4);
+    NSSLog(@"str5 address:%p", str5);
+
 }
 
 
