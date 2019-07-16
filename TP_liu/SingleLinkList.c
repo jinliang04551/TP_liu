@@ -21,6 +21,8 @@
 
 //初始化一个单链表，具有头指针，头结点，头结点->next=NULL;
 Node * initList() {
+    printf("%s 初始化链表\n",__func__);
+
    //头结点
     Node *linkHead = (Node*)malloc(sizeof(Node));
     linkHead->next = NULL;
@@ -42,8 +44,10 @@ Node * initList() {
 
 
 void displayLinkList(Node *node){
+    printf("%s 打印开始\n",__func__);
+
     Node *tempNode = node;
-    while (tempNode->next) {
+    while (tempNode != NULL) {
         printf("node->data:%d",tempNode->data);
         tempNode = tempNode->next;
         printf("\n");
@@ -54,23 +58,28 @@ void displayLinkList(Node *node){
 
 
 Node * reverseList(Node* pHead) {
-      Node *root=pHead;
+     Node *root=pHead;
      Node *pre=NULL;
      Node *next=NULL;
      if(pHead==NULL) return NULL;
- while(root->next){
-      next=root->next;
-      root->next=pre;
-      pre=root;
-     root=next;
- }
+    
+     while(root->next){
+          next=root->next;
+          root->next=pre;
+          pre=root;
+          root=next;
+     }
      root->next=pre;
+    
      return root;
  }
 
 void singleList_main(){
    Node *linkList = initList();
    displayLinkList(linkList);
-    
+   Node *root = reverseList(linkList);
+   printf("=======reverseList==========");
+   displayLinkList(root);
+
 }
 

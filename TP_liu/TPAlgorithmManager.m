@@ -84,7 +84,7 @@ static const int MAX_HEARTBEAT_RATE = 220; //最大心率
     NSSLog(@"==============================================");
 
     singleList_main();
-    [self testLock];
+//    [self testLock];
 }
 
 
