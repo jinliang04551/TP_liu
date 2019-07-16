@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5A0D0EB820E217D900CEEABF /* JLUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D0EB720E217D900CEEABF /* JLUtil.m */; };
 		5A0D109021413291005FE672 /* SingleLinkList.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D108E21413291005FE672 /* SingleLinkList.c */; };
+		5A13156D22DDB8FA00A4257D /* TPMutiThreadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A13156C22DDB8F900A4257D /* TPMutiThreadOperation.m */; };
 		5A6A35D320F6E8B200A91097 /* TPTestDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6A35D220F6E8B200A91097 /* TPTestDrawView.m */; };
 		5AE9C3F120BF90A600BDAE3A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9C3F020BF90A600BDAE3A /* AppDelegate.m */; };
 		5AE9C3F420BF90A600BDAE3A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9C3F320BF90A600BDAE3A /* ViewController.m */; };
@@ -27,6 +28,9 @@
 		5A0D0EB720E217D900CEEABF /* JLUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JLUtil.m; sourceTree = "<group>"; };
 		5A0D108E21413291005FE672 /* SingleLinkList.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = SingleLinkList.c; sourceTree = "<group>"; };
 		5A0D108F21413291005FE672 /* SingleLinkList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SingleLinkList.h; sourceTree = "<group>"; };
+		5A13156B22DDB8F900A4257D /* TPMutiThreadOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPMutiThreadOperation.h; sourceTree = "<group>"; };
+		5A13156C22DDB8F900A4257D /* TPMutiThreadOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPMutiThreadOperation.m; sourceTree = "<group>"; };
+		5A13156E22DDBB7B00A4257D /* prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = prefix.pch; sourceTree = "<group>"; };
 		5A38B7D42160B8E4009E032E /* TPSocketClient.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TPSocketClient.cpp; sourceTree = "<group>"; };
 		5A38B7D52160B8E4009E032E /* TPSocketClient.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TPSocketClient.hpp; sourceTree = "<group>"; };
 		5A38B7D72160B900009E032E /* TPSocketServer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TPSocketServer.cpp; sourceTree = "<group>"; };
@@ -88,6 +92,7 @@
 		5A6A35D620F6F1A500A91097 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				5A13156E22DDBB7B00A4257D /* prefix.pch */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -122,6 +127,8 @@
 				5A0D108E21413291005FE672 /* SingleLinkList.c */,
 				5AE9C41820C53D4800BDAE3A /* TPAlgorithmManager.h */,
 				5AE9C41920C53D4800BDAE3A /* TPAlgorithmManager.m */,
+				5A13156B22DDB8F900A4257D /* TPMutiThreadOperation.h */,
+				5A13156C22DDB8F900A4257D /* TPMutiThreadOperation.m */,
 				5A0D0EB620E217D900CEEABF /* JLUtil.h */,
 				5A0D0EB720E217D900CEEABF /* JLUtil.m */,
 				5AE9C40820BF90C100BDAE3A /* Views */,
@@ -230,6 +237,7 @@
 				5AE9C41C20C5451000BDAE3A /* algorithm.c in Sources */,
 				5AE9C40720BF90BA00BDAE3A /* MISTestBlockView.m in Sources */,
 				5AE9C3F420BF90A600BDAE3A /* ViewController.m in Sources */,
+				5A13156D22DDB8FA00A4257D /* TPMutiThreadOperation.m in Sources */,
 				5AE9C3FF20BF90A900BDAE3A /* main.m in Sources */,
 				5AE9C3F120BF90A600BDAE3A /* AppDelegate.m in Sources */,
 				5AE9C40F20BFD8F500BDAE3A /* UIView+CurrentTime.m in Sources */,
@@ -302,6 +310,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -358,6 +367,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -376,6 +386,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = TP_liu/Global/prefix.pch;
 				INFOPLIST_FILE = TP_liu/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -393,6 +406,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = TP_liu/Global/prefix.pch;
 				INFOPLIST_FILE = TP_liu/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
