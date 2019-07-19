@@ -21,6 +21,8 @@
     
     [[TPAlgorithmManager manager] testAlgorithm];
     
+    [[TPMutiThreadOperation mutiThreadOperation] testFun];
+    
     return YES;
 }
 
