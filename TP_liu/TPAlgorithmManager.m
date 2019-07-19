@@ -88,6 +88,7 @@ static const int MAX_HEARTBEAT_RATE = 220; //最大心率
 
 
 
+
 @end
 
 #undef BEGIN_HEART_BEAT_WARNING_RATIO
