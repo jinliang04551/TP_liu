@@ -54,7 +54,7 @@ void displayLinkList(Node *node){
 
 
 Node * reverseList(Node* pHead) {
-      Node *root=pHead;
+     Node *root=pHead;
      Node *pre=NULL;
      Node *next=NULL;
      if(pHead==NULL) return NULL;
@@ -68,9 +68,11 @@ Node * reverseList(Node* pHead) {
      return root;
  }
 
-void singleList_main(){
+void singleList_main(void){
    Node *linkList = initList();
    displayLinkList(linkList);
-    
+   reverseList(linkList);
+   printf("after reverse");
+
 }
 
