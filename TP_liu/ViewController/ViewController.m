@@ -445,20 +445,21 @@ NSThread *thread1 = [[NSThread alloc] initWithTarget:self selector:@selecto
     
 }
 
--(void)doSomething1:(NSObject *)object {
+
+- (void)doSomething1:(NSObject *)object {
        // 传递过来的参数
-       NSLog(@"%@",object);
-       NSLog(@"doSomething1：%@",[NSThread currentThread]);
+    NSLog(@"%@",object);
+    NSLog(@"doSomething1：%@",[NSThread currentThread]);
 }
 
 - (void)doSomething2:(NSObject *)object {
-       NSLog(@"%@",object);
-       NSLog(@"doSomething2：%@",[NSThread currentThread]);
+      NSLog(@"%@",object);
+      NSLog(@"doSomething2：%@",[NSThread currentThread]);
 }
 
 - (void)doSomething3:(NSObject *)object {
-       NSLog(@"%@",object);
-       NSLog(@"doSomething3：%@",[NSThread currentThread]);
+     NSLog(@"%@",object);
+     NSLog(@"doSomething3：%@",[NSThread currentThread]);
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
