@@ -83,7 +83,6 @@
 //    [self testOperationQueue];
 //    [self threadTest];
 //    [self testNSTimer];
-//    [self testString];
     
 //    [self testDrawMutiPathView];
     
@@ -111,7 +110,10 @@
 //
 //    NSSLog(@"========6=====");
 
-    [self testCopyMutableCopy];
+//    [self testCopyMutableCopy];
+    
+    [self testString];
+
 }
 
 - (void)testCopyMutableCopy {
