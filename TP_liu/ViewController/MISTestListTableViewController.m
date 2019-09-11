@@ -61,7 +61,16 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
     NSMutableArray *tempItems = [NSMutableArray array];
     [tempItems addObject:@{ItemTitleKey:@"地区",ItemActionKey:NSStringFromSelector(@selector(testNSLocale))}];
     [tempItems addObject:@{ItemTitleKey:@"testString",ItemActionKey:NSStringFromSelector(@selector(testString))}];
-
+    [tempItems addObject:@{ItemTitleKey:@"testNSTimer",ItemActionKey:NSStringFromSelector(@selector(testNSTimer))}];
+    [tempItems addObject:@{ItemTitleKey:@"timerUpdate",ItemActionKey:NSStringFromSelector(@selector(timerUpdate))}];
+    [tempItems addObject:@{ItemTitleKey:@"threadTest",ItemActionKey:NSStringFromSelector(@selector(threadTest))}];
+    [tempItems addObject:@{ItemTitleKey:@"testFunc",ItemActionKey:NSStringFromSelector(@selector(testFunc))}];
+    [tempItems addObject:@{ItemTitleKey:@"testOperationQueue",ItemActionKey:NSStringFromSelector(@selector(testOperationQueue))}];
+    [tempItems addObject:@{ItemTitleKey:@"syncMain",ItemActionKey:NSStringFromSelector(@selector(syncMain))}];
+    [tempItems addObject:@{ItemTitleKey:@"asyncMain",ItemActionKey:NSStringFromSelector(@selector(asyncMain))}];
+     [tempItems addObject:@{ItemTitleKey:@"asyn_barrier",ItemActionKey:NSStringFromSelector(@selector(asyn_barrier))}];
+     [tempItems addObject:@{ItemTitleKey:@"testSinal",ItemActionKey:NSStringFromSelector(@selector(testSinal))}];
+    [tempItems addObject:@{ItemTitleKey:@"testGroup",ItemActionKey:NSStringFromSelector(@selector(testGroup))}];
     
     self.items = [tempItems copy];
     

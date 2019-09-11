@@ -50,7 +50,7 @@
  *  可用制做原始比例的缩略图
  *
  *  @param size 指定size
- *  @param canZoom 能否放大适应
+ *  @param flag 能否放大适应
  *
  *  @return image obj
  */
