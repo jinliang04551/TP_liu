@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MISTestListTableViewController : UITableViewController
+@interface MISTestListTableViewController : UIViewController
 
 
 @end

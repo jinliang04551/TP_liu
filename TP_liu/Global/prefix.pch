@@ -23,6 +23,8 @@
 #import <Foundation/Foundation.h>
 #import "TPConfig.h"
 #import "TPMutiThreadOperation.h"
+#import "MISAppStyle.h"
+#import "MISCategories.h"
 
 #endif
 
