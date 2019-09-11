@@ -445,6 +445,7 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
     NSString *actionName = item[ItemActionKey];
     SEL action = NSSelectorFromString(actionName);
     [self performSelector:action];
+    
 }
 
 #pragma mark getter and setter
