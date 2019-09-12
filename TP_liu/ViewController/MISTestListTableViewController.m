@@ -114,7 +114,7 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
     NSString *strCopy = [str copy];
     NSMutableString *mustr = [str copy];
     NSMutableString *muCopy = [str mutableCopy];
-    [mustr appendString:@"4"];    //会直接崩溃
+//    [mustr appendString:@"4"];    //会直接崩溃
     [muCopy appendString:@"5"];
     NSLog(@"str = %@    strCopy = %@    mustr = %@    muCopy = %@",str,strCopy,mustr,muCopy);
     NSLog(@"str地址%p    strCopy地址%p    mustr地址%p     muCopy地址%p",str ,strCopy,mustr,muCopy);
@@ -127,7 +127,7 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
     NSString *strCopy = [mustr copy];
     NSMutableString *mutableStr = [mustr copy];
     NSMutableString *mutableStrCopy = [mustr mutableCopy];
-    [mutableStr appendString:@"5"];    //会崩溃
+//    [mutableStr appendString:@"5"];    //会崩溃
     [mutableStrCopy appendString:@"6"];
     NSLog(@"mustr = %@  strCopy = %@  mutableStr = %@   mutableStrCopy = %@",mustr,strCopy,mutableStr,mutableStrCopy);
     NSLog(@"mustr地址%p    strCopy地址%p    mutableStr地址%p     mutableStrCopy地址%p",mustr,strCopy,mutableStr,mutableStrCopy);
