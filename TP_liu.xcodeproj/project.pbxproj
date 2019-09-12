@@ -261,7 +261,7 @@
 		5A39972D2327B2C2007E0F03 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		5A39972E2327B2C2007E0F03 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		5A39973323289A1E007E0F03 /* YYModel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YYModel.framework; sourceTree = "<group>"; };
-		5A39973523289A1F007E0F03 /* TP_liu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TP_liu.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A39973523289A1F007E0F03 /* TP_liu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = TP_liu.app; path = "/Users/liu/Desktop/JXT_Git/TP_liu/build/Debug-iphoneos/TP_liu.app"; sourceTree = "<absolute>"; };
 		5A6A35D120F6E8B200A91097 /* TPTestDrawView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTestDrawView.h; sourceTree = "<group>"; };
 		5A6A35D220F6E8B200A91097 /* TPTestDrawView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTestDrawView.m; sourceTree = "<group>"; };
 		5AE9C3EF20BF90A600BDAE3A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -590,7 +590,6 @@
 			children = (
 				5AE9C3EE20BF90A600BDAE3A /* TP_liu */,
 				5A39970C2327AD30007E0F03 /* Frameworks */,
-				5A39973523289A1F007E0F03 /* TP_liu.app */,
 			);
 			sourceTree = "<group>";
 		};

@@ -14,7 +14,6 @@
 
 #define BEGIN_HEART_BEAT_WARNING_RATIO 0.65
 #define STOP_HEART_BEAT_WARNING_RATIO  0.60
-static const int MAX_HEARTBEAT_RATE = 220; //最大心率
 
 
 @interface TPAlgorithmManager()
