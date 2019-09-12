@@ -18,11 +18,6 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    
-    [[TPAlgorithmManager manager] testAlgorithm];
-    
-    [[TPMutiThreadOperation mutiThreadOperation] testFun];
     
     /*
      * 加载Window

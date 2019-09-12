@@ -12,6 +12,9 @@
 #import "TPConfig.h"
 #import <objc/objc.h>
 #import <objc/runtime.h>
+#import "TPAlgorithmManager.h"
+#import "TPMutiThreadOperation.h"
+
 
 #define ItemTitleKey @"title"
 
@@ -60,7 +63,7 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
 - (void)prepareItems {
     NSMutableArray *tempItems = [NSMutableArray array];
     [tempItems addObject:@{ItemTitleKey:@"地区",ItemActionKey:NSStringFromSelector(@selector(testNSLocale))}];
-    [tempItems addObject:@{ItemTitleKey:@"testString",ItemActionKey:NSStringFromSelector(@selector(testString))}];
+    [tempItems addObject:@{ItemTitleKey:@"copyAndMutableCopy",ItemActionKey:NSStringFromSelector(@selector(copyAndMutableCopy))}];
     [tempItems addObject:@{ItemTitleKey:@"testNSTimer",ItemActionKey:NSStringFromSelector(@selector(testNSTimer))}];
     [tempItems addObject:@{ItemTitleKey:@"timerUpdate",ItemActionKey:NSStringFromSelector(@selector(timerUpdate))}];
     [tempItems addObject:@{ItemTitleKey:@"threadTest",ItemActionKey:NSStringFromSelector(@selector(threadTest))}];
@@ -71,6 +74,9 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
      [tempItems addObject:@{ItemTitleKey:@"asyn_barrier",ItemActionKey:NSStringFromSelector(@selector(asyn_barrier))}];
      [tempItems addObject:@{ItemTitleKey:@"testSinal",ItemActionKey:NSStringFromSelector(@selector(testSinal))}];
     [tempItems addObject:@{ItemTitleKey:@"testGroup",ItemActionKey:NSStringFromSelector(@selector(testGroup))}];
+    [tempItems addObject:@{ItemTitleKey:@"testAlgorithm",ItemActionKey:NSStringFromSelector(@selector(testAlgorithm))}];
+    
+     [tempItems addObject:@{ItemTitleKey:@"testMutiOpeation",ItemActionKey:NSStringFromSelector(@selector(testMutiOpeation))}];
     
     self.items = [tempItems copy];
     
@@ -94,45 +100,64 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
     [self.view addSubview:drawView];
 }
 
-- (void)testString {
-    
-    NSString *str1 = @"abc";
-    NSString *str2 = @"abc";
-    NSString *str3 = [[NSString alloc] initWithFormat:@"abc"];
-    NSString *str31 = [[NSString alloc] initWithString:@"abc"];
-    NSString *str4 = [str1 copy];
-    NSString *str5 = [str1 mutableCopy];
-    NSString *str6 = [NSString stringWithString:@"abc"];
-    NSString *str61 = [NSString stringWithFormat:@"abc"];
-    NSMutableString *mustr1 = [NSMutableString stringWithString:@"123"];
-    NSString *str7 = [mustr1 copy];
-    NSString *str8 = mustr1;
-    [mustr1 appendString:@"456"];
-    
-    
-    
-    NSMutableString *str9 = [NSMutableString stringWithString:@"abc"];
-    NSString *str10 = [[NSMutableString alloc] initWithString:@"abc"];
-    NSString *str11 = [[NSMutableString alloc] initWithString:@"abc"];
-    
-    
-    NSLog(@"str1 address: %p",str1);
-    NSLog(@"str2 address: %p",str2);
-    NSLog(@"str3 address: %p",str3);
-    NSLog(@"str31 address: %p",str31);
-    NSLog(@"str4 address: %p",str4);
-    NSLog(@"str5 address: %p",str5);
-    NSLog(@"str6 address: %p",str6);
-    NSLog(@"str61 address: %p",str61);
-    NSLog(@"str7 address: %p value:%@",str7,str7);
-    NSLog(@"str8 address: %p value:%@",str8,str8);
-    NSLog(@"mustr1 address: %p value:%@",mustr1,mustr1);
-    NSLog(@"str9 address: %p",str9);
-    NSLog(@"str10 address: %p",str10);
-    NSLog(@"str11 address: %p",str11);
-    
-    
+- (void)copyAndMutableCopy {
+    NSSLog(@"%s",__func__);
+    [self testStr];
+    [self testMutbleStr];
+    [self testArray];
+    [self testMutableArray];
 }
+
+- (void)testStr {
+    NSSLog(@"%s",__func__);
+    NSString *str = @"123";
+    NSString *strCopy = [str copy];
+    NSMutableString *mustr = [str copy];
+    NSMutableString *muCopy = [str mutableCopy];
+    [mustr appendString:@"4"];    //会直接崩溃
+    [muCopy appendString:@"5"];
+    NSLog(@"str = %@    strCopy = %@    mustr = %@    muCopy = %@",str,strCopy,mustr,muCopy);
+    NSLog(@"str地址%p    strCopy地址%p    mustr地址%p     muCopy地址%p",str ,strCopy,mustr,muCopy);
+}
+
+- (void)testMutbleStr {
+    NSSLog(@"%s",__func__);
+    
+    NSMutableString *mustr = [NSMutableString stringWithFormat:@"123"];
+    NSString *strCopy = [mustr copy];
+    NSMutableString *mutableStr = [mustr copy];
+    NSMutableString *mutableStrCopy = [mustr mutableCopy];
+    [mutableStr appendString:@"5"];    //会崩溃
+    [mutableStrCopy appendString:@"6"];
+    NSLog(@"mustr = %@  strCopy = %@  mutableStr = %@   mutableStrCopy = %@",mustr,strCopy,mutableStr,mutableStrCopy);
+    NSLog(@"mustr地址%p    strCopy地址%p    mutableStr地址%p     mutableStrCopy地址%p",mustr,strCopy,mutableStr,mutableStrCopy);
+
+}
+
+- (void)testArray {
+    NSSLog(@"%s",__func__);
+
+    NSArray *array = [NSArray arrayWithObjects:@"1",@"2",@"3", nil];
+    NSArray *arrayCopy = [array copy];
+    NSMutableArray *muarray = [array copy];
+    NSMutableArray *copyArray = [array mutableCopy];
+    NSLog(@"array地址%p     arrayCopy地址%p      muarray地址%p     copyArray地址%p",array,arrayCopy,muarray,copyArray);
+}
+
+- (void)testMutableArray {
+    NSSLog(@"%s",__func__);
+
+    NSMutableArray *muarray = [NSMutableArray arrayWithObjects:@"1",@"2",@"3", nil];
+    NSArray *array = [muarray copy];
+    NSArray *mutableCopy = [muarray mutableCopy];
+    NSMutableArray *muCopy = [muarray copy];
+    NSMutableArray *arrayCopy = [muarray mutableCopy];
+    NSLog(@"muarray地址%p   array地址%p   mutableCopy地址%p   muCopy地址%p   arrayCpy地址%p",muarray,array,mutableCopy,muCopy,arrayCopy);
+}
+
+
+
+
 
 - (void)testNSTimer {
     NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerUpdate) userInfo:nil repeats:YES];
@@ -393,9 +418,15 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
     
 }
 
-- (void)testSingal2 {
-    
+- (void)testAlgorithm {
+    [[TPAlgorithmManager manager] testAlgorithm];
+
 }
+
+- (void)testMutiOpeation {
+    [[TPMutiThreadOperation mutiThreadOperation] testFun];
+}
+
 
 - (void)doSomething1:(NSObject *)object {
     // 传递过来的参数
