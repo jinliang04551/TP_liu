@@ -95,6 +95,7 @@
     
 //    [self testSingal2];
     
+<<<<<<< HEAD
 //    NSSLog(@"========1=====");
 //    dispatch_async(dispatch_get_global_queue(0, 0), ^{
 //        sleep(1);
@@ -114,6 +115,9 @@
     
     [self testString];
 
+=======
+//    [self testCopyMutableCopy];
+>>>>>>> 333bb04ab6f6f7981527c917b34109f8fec995e0
 }
 
 - (void)testCopyMutableCopy {
@@ -338,7 +342,7 @@ NSThread *thread1 = [[NSThread alloc] initWithTarget:self selector:@selecto
         }
     });
     dispatch_async(queue, ^{
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 5; i++) {
             NSLog(@"主队列异步2   %@",[NSThread currentThread]);
         }
     });
@@ -387,10 +391,10 @@ NSThread *thread1 = [[NSThread alloc] initWithTarget:self selector:@selecto
 - (void)testGroup {
     dispatch_group_t group = dispatch_group_create();
     dispatch_group_async(group, dispatch_get_global_queue(0, 0), ^{
-        NSLog(@"队列组：有一个耗时操作完成！");
+        NSLog(@"队列组1：有一个耗时操作完成！");
     });
     dispatch_group_async(group, dispatch_get_global_queue(0, 0), ^{
-        NSLog(@"队列组：有一个耗时操作完成！");
+        NSLog(@"队列组2：有一个耗时操作完成！");
     });
     
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
@@ -463,6 +467,24 @@ NSThread *thread1 = [[NSThread alloc] initWithTarget:self selector:@selecto
      NSLog(@"%@",object);
      NSLog(@"doSomething3：%@",[NSThread currentThread]);
 }
+
+- (void)testAsynQueue {
+    NSSLog(@"========1=====");
+    dispatch_async(dispatch_get_main_queue(), ^{
+        sleep(1);
+        NSSLog(@"========2=====");
+        sleep(1);
+        NSSLog(@"========3=====");
+        
+    });
+    
+    NSSLog(@"========4=====");
+    sleep(2);
+    NSSLog(@"========5=====");
+    
+    NSSLog(@"========6=====");
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

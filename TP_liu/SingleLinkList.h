@@ -19,7 +19,7 @@ typedef struct Node {
 }Node;
 
 //所有操作调用入口
-void singleList_main();
+void singleList_main(void);
 
 
 #endif /* SingleLinkList_h */

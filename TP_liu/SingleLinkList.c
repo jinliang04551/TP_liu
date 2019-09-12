@@ -74,9 +74,11 @@ Node * reverseList(Node* pHead) {
      return root;
  }
 
-void singleList_main(){
+void singleList_main(void){
    Node *linkList = initList();
    displayLinkList(linkList);
+   reverseList(linkList);
+   printf("after reverse");
    Node *root = reverseList(linkList);
    printf("=======reverseList==========");
    displayLinkList(root);
