@@ -63,7 +63,7 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
 - (void)prepareItems {
     NSMutableArray *tempItems = [NSMutableArray array];
     [tempItems addObject:@{ItemTitleKey:@"地区",ItemActionKey:NSStringFromSelector(@selector(testNSLocale))}];
-    [tempItems addObject:@{ItemTitleKey:@"copyAndMutableCopy",ItemActionKey:NSStringFromSelector(@selector(copyAndMutableCopy))}];
+    [tempItems addObject:@{ItemTitleKey:@"testCopyMutableCopy",ItemActionKey:NSStringFromSelector(@selector(testCopyMutableCopy))}];
     [tempItems addObject:@{ItemTitleKey:@"testNSTimer",ItemActionKey:NSStringFromSelector(@selector(testNSTimer))}];
     [tempItems addObject:@{ItemTitleKey:@"timerUpdate",ItemActionKey:NSStringFromSelector(@selector(timerUpdate))}];
     [tempItems addObject:@{ItemTitleKey:@"threadTest",ItemActionKey:NSStringFromSelector(@selector(threadTest))}];
@@ -100,12 +100,13 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
     [self.view addSubview:drawView];
 }
 
-- (void)copyAndMutableCopy {
+- (void)testCopyMutableCopy {
     NSSLog(@"%s",__func__);
     [self testStr];
     [self testMutbleStr];
     [self testArray];
     [self testMutableArray];
+    [self copyAndMutableCopy];
 }
 
 - (void)testStr {
@@ -425,6 +426,21 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
 
 - (void)testMutiOpeation {
     [[TPMutiThreadOperation mutiThreadOperation] testFun];
+}
+
+- (void)copyAndMutableCopy {
+    NSArray *array = [NSArray arrayWithObjects:[NSMutableString stringWithString:@"1"],@"2",@"3", nil];
+    NSArray *arrayCopy = [array copy];
+    NSArray *arrayMutableCopy = [array mutableCopy];
+    NSMutableArray *mutableArrayCopy = [array copy];
+    NSMutableArray *mutableArrayMutableCopy = [array mutableCopy];
+    NSLog(@"array地址%p     arrayCopy地址%p      arrayMutableCopy地址%p     mutableArrayCopy地址%p    mutableArrayCopy地址%p",array,arrayCopy,arrayMutableCopy,mutableArrayCopy,mutableArrayMutableCopy);
+    NSLog(@"array = %@   arrayCopy = %@    arrayMutableCopy = %@   mutableArrayCopy =  %@    mutableArrayCopy =  %@",array,arrayCopy,arrayMutableCopy,mutableArrayCopy,mutableArrayMutableCopy);
+    
+    NSMutableString *mustr = array[0];
+    [mustr appendString:@"2"];
+    NSLog(@"array地址%p     arrayCopy地址%p      arrayMutableCopy地址%p     mutableArrayCopy地址%p    mutableArrayCopy地址%p",array,arrayCopy,arrayMutableCopy,mutableArrayCopy,mutableArrayMutableCopy);
+    NSLog(@"array = %@   arrayCopy = %@    arrayMutableCopy = %@   mutableArrayCopy =  %@    mutableArrayCopy =  %@",array,arrayCopy,arrayMutableCopy,mutableArrayCopy,mutableArrayMutableCopy);
 }
 
 
