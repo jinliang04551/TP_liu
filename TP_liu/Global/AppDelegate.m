@@ -18,7 +18,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
+    NSSLog(@"%s",__func__);
+
     /*
      * 加载Window
      */

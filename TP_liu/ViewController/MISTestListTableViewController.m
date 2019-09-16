@@ -49,7 +49,14 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
 
 
 @implementation MISTestListTableViewController
++ (void)load {
+    NSSLog(@"%s",__func__);
+}
 
++ (void)initialize {
+    NSSLog(@"%s",__func__);
+
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = WHITE_COLOR;
