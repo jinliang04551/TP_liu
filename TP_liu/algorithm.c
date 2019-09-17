@@ -51,6 +51,8 @@ void quick_sort(int a[], int l, int r) {
 }
 
 int binarySearch(int *a,int len, int goal) {
+    printf("%s",__func__);
+    
     int low = 0;
     int high = len - 1;
     
@@ -66,4 +68,11 @@ int binarySearch(int *a,int len, int goal) {
         }
     }
     return -1;
+}
+
+
+int* maxOfThreeMultiply(int a[]){
+    int result[] = {};
+    
+    return result;
 }

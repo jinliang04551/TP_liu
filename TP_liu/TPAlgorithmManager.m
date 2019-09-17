@@ -88,13 +88,14 @@
 
 
 - (void)testGetMaxCountOfCharInString {
+    printf("%s",__func__);
     
     char *s = "kkk55555555sfffksaasssdf11";
     char keys[50] = "";
     int counts[50] = {};
     
     long len = strlen(s);
-    printf("\n len:%ld\n",len);
+    printf("\nlen:%ld\n",len);
 
     for (int i = 0; i < len; ++i) {
         char key = s[i];
