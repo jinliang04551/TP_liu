@@ -11,6 +11,7 @@
 #import "algorithm.h"
 #import "TPConfig.h"
 #import "SingleLinkList.h"
+//#include <stdio.h>
 
 #define BEGIN_HEART_BEAT_WARNING_RATIO 0.65
 #define STOP_HEART_BEAT_WARNING_RATIO  0.60
@@ -37,7 +38,7 @@
 //    [self testBubbleSort];
 //    [self testQuickSort];
     [self testSingleList];
-
+    [self testGetMaxCountOfCharInString];
 }
 
 
@@ -86,7 +87,77 @@
 }
 
 
+- (void)testGetMaxCountOfCharInString {
+    
+    char *s = "kkk55555555sfffksaasssdf11";
+    char keys[50] = "";
+    int counts[50] = {};
+    
+    long len = strlen(s);
+    printf("\n len:%ld\n",len);
 
+    for (int i = 0; i < len; ++i) {
+        char key = s[i];
+        printf("\nkey:%c\n",key);
+        int indexOfKey = isContainCharInKeys(key, keys);
+        if (indexOfKey >= 0) {
+            counts[indexOfKey]++;
+        }else {
+            long currentIndex = strlen(keys);
+            keys[currentIndex] = key;
+            counts[currentIndex] = 1;
+        }
+    }
+
+    printf("\n keys:%s\n",keys);
+
+//    int index = indexOfMaxChar(counts);
+//    printf("index %d",index);
+    
+    int keyNum = counts[0];
+    int index = 0;
+    for (int i = 0 ; i<50; ++i) {
+        if (counts[i] > keyNum) {
+            keyNum = counts[i];
+            index = i;
+        }
+    }
+    printf("index %d",index);
+    printf("the max count of char is:%c\n count is :%d",keys[index],counts[index]);
+    
+    
+    int b[50] = {1,2,3,4,5,6,7,8,9,0};
+
+    int keyCount = sizeof(b)/sizeof(int);
+    printf("\nkeyCount:%d",keyCount);
+
+}
+
+int isContainCharInKeys(char key,char *keys) {
+    int result  = -1;
+    for (int i = 0; i < strlen(keys); ++i) {
+        char c = keys[i];
+        if (c == key) {
+            result = i;
+            break;
+        }
+    }
+    return result;
+}
+
+int indexOfMaxChar(int a[]){
+    int index = -1;
+    int keyNum = a[0];
+    int keyCount = sizeof(a)/sizeof(int);
+
+    for (int i = 0 ; i<keyCount; ++i) {
+        if (a[i] > keyNum) {
+            keyNum = a[i];
+            index = i;
+        }
+    }
+    return index;
+}
 
 @end
 
