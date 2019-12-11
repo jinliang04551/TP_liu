@@ -67,6 +67,7 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
     [self.table reloadData];
 }
 
+
 - (void)prepareItems {
     NSMutableArray *tempItems = [NSMutableArray array];
     [tempItems addObject:@{ItemTitleKey:@"地区",ItemActionKey:NSStringFromSelector(@selector(testNSLocale))}];
