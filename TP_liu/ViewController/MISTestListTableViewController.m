@@ -86,6 +86,8 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
     
      [tempItems addObject:@{ItemTitleKey:@"testMutiOpeation",ItemActionKey:NSStringFromSelector(@selector(testMutiOpeation))}];
     
+    [tempItems addObject:@{ItemTitleKey:@"testSemaphoreAsyn",ItemActionKey:NSStringFromSelector(@selector(testSemaphoreAsyn))}];
+
     self.items = [tempItems copy];
     
 }
@@ -425,6 +427,28 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
     x = dispatch_semaphore_signal(signal);
     NSLog(@"6_x:%ld",x);
     
+}
+
+- (void)testSemaphoreAsyn {
+    dispatch_semaphore_t singal = dispatch_semaphore_create(1);
+    dispatch_time_t overTime = dispatch_time(DISPATCH_TIME_NOW, 2 *NSEC_PER_SEC);
+    
+ dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+     dispatch_semaphore_wait(singal, overTime);
+     NSLog(@"需要线程同步的操作1 开始");
+     sleep(2);
+     NSLog(@"需要线程同步的操作1 结束");
+     dispatch_semaphore_signal(singal);
+    });
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        sleep(1);
+        dispatch_semaphore_wait(singal, overTime);
+        NSLog(@"需要线程同步的操作2 开始");
+        NSLog(@"需要线程同步的操作2 结束");
+        dispatch_semaphore_signal(singal);
+
+    });
 }
 
 - (void)testAlgorithm {
