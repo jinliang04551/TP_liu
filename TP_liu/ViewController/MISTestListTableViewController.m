@@ -373,10 +373,10 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
 - (void)testGroup {
     dispatch_group_t group = dispatch_group_create();
     dispatch_group_async(group, dispatch_get_global_queue(0, 0), ^{
-        NSLog(@"队列组：有一个耗时操作完成！");
+        NSLog(@"队列组1：有一个耗时操作完成！");
     });
     dispatch_group_async(group, dispatch_get_global_queue(0, 0), ^{
-        NSLog(@"队列组：有一个耗时操作完成！");
+        NSLog(@"队列组2：有一个耗时操作完成！");
     });
     
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
