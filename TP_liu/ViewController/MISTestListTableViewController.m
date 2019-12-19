@@ -383,9 +383,7 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
         sleep(1);
     });
     
-    for (NSInteger i =0; i < 10; ++i) {
-        
-    }
+  
     dispatch_group_enter(group);
     
     dispatch_group_leave(group);
