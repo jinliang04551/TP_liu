@@ -84,6 +84,7 @@
 		5A3997322327B2C2007E0F03 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A39972B2327B2C2007E0F03 /* libc++.tbd */; };
 		5A39973423289A1F007E0F03 /* YYModel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5A39973323289A1E007E0F03 /* YYModel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5A39973623289A86007E0F03 /* MISPinyin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A3997122327AD30007E0F03 /* MISPinyin.framework */; };
+		5A4C582D23ABB8DD00CF54F0 /* MISDrawViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4C582C23ABB8DD00CF54F0 /* MISDrawViewController.m */; };
 		5A6A35D320F6E8B200A91097 /* TPTestDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6A35D220F6E8B200A91097 /* TPTestDrawView.m */; };
 		5AE9C3F120BF90A600BDAE3A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9C3F020BF90A600BDAE3A /* AppDelegate.m */; };
 		5AE9C3F920BF90A900BDAE3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AE9C3F820BF90A900BDAE3A /* Assets.xcassets */; };
@@ -261,7 +262,9 @@
 		5A39972D2327B2C2007E0F03 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		5A39972E2327B2C2007E0F03 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		5A39973323289A1E007E0F03 /* YYModel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YYModel.framework; sourceTree = "<group>"; };
-		5A39973523289A1F007E0F03 /* TP_liu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = TP_liu.app; path = "/Users/liu/Desktop/JXT_Git/TP_liu/build/Debug-iphoneos/TP_liu.app"; sourceTree = "<absolute>"; };
+		5A4C582A23A4F23500CF54F0 /* TP_liu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TP_liu.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A4C582B23ABB8DD00CF54F0 /* MISDrawViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MISDrawViewController.h; sourceTree = "<group>"; };
+		5A4C582C23ABB8DD00CF54F0 /* MISDrawViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MISDrawViewController.m; sourceTree = "<group>"; };
 		5A6A35D120F6E8B200A91097 /* TPTestDrawView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTestDrawView.h; sourceTree = "<group>"; };
 		5A6A35D220F6E8B200A91097 /* TPTestDrawView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTestDrawView.m; sourceTree = "<group>"; };
 		5AE9C3EF20BF90A600BDAE3A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -564,6 +567,8 @@
 			children = (
 				5A3996052327935B007E0F03 /* MISTestListTableViewController.h */,
 				5A3996062327935B007E0F03 /* MISTestListTableViewController.m */,
+				5A4C582B23ABB8DD00CF54F0 /* MISDrawViewController.h */,
+				5A4C582C23ABB8DD00CF54F0 /* MISDrawViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -590,6 +595,7 @@
 			children = (
 				5AE9C3EE20BF90A600BDAE3A /* TP_liu */,
 				5A39970C2327AD30007E0F03 /* Frameworks */,
+				5A4C582A23A4F23500CF54F0 /* TP_liu.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -645,7 +651,7 @@
 			);
 			name = TP_liu;
 			productName = TP_liu;
-			productReference = 5A39973523289A1F007E0F03 /* TP_liu.app */;
+			productReference = 5A4C582A23A4F23500CF54F0 /* TP_liu.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -713,6 +719,7 @@
 				5A3996622327A842007E0F03 /* UIActionSheet+MISBlock.m in Sources */,
 				5A3996562327A842007E0F03 /* NSData+MISZLib.m in Sources */,
 				5AE9C41C20C5451000BDAE3A /* algorithm.c in Sources */,
+				5A4C582D23ABB8DD00CF54F0 /* MISDrawViewController.m in Sources */,
 				5A3996602327A842007E0F03 /* UISwitch+AutoLayout.m in Sources */,
 				5A3996682327A842007E0F03 /* UITextField+AutoLayout.m in Sources */,
 				5A3997032327A956007E0F03 /* app.c in Sources */,
