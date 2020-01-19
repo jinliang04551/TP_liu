@@ -15,6 +15,7 @@
 #import "TPAlgorithmManager.h"
 #import "TPMutiThreadOperation.h"
 #import "MISTestClass.h"
+#import "MISDrawViewController.h"
 
 #define ItemTitleKey @"title"
 
@@ -89,6 +90,7 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
     [tempItems addObject:@{ItemTitleKey:@"testSemaphoreAsyn",ItemActionKey:NSStringFromSelector(@selector(testSemaphoreAsyn))}];
 
     [tempItems addObject:@{ItemTitleKey:@"testCategory",ItemActionKey:NSStringFromSelector(@selector(testCategory))}];
+    [tempItems addObject:@{ItemTitleKey:@"goDrawViewPage",ItemActionKey:NSStringFromSelector(@selector(goDrawViewPage))}];
     
     self.items = [tempItems copy];
     
@@ -375,11 +377,18 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
 - (void)testGroup {
     dispatch_group_t group = dispatch_group_create();
     dispatch_group_async(group, dispatch_get_global_queue(0, 0), ^{
-        NSLog(@"队列组1：有一个耗时操作完成！");
+        NSLog(@"队列组 1：有一个耗时操作完成！");
+        sleep(2);
     });
     dispatch_group_async(group, dispatch_get_global_queue(0, 0), ^{
-        NSLog(@"队列组2：有一个耗时操作完成！");
+        NSLog(@"队列组 2：有一个耗时操作完成！");
+        sleep(1);
     });
+    
+  
+    dispatch_group_enter(group);
+    
+    dispatch_group_leave(group);
     
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
         NSLog(@"刷新UI");
@@ -501,6 +510,10 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
     NSLog(@"doSomething1：%@",[NSThread currentThread]);
 }
 
+- (void)goDrawViewPage {
+    MISDrawViewController * vc = [[MISDrawViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 #pragma mark - Table view data source && delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
