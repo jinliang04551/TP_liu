@@ -14,7 +14,7 @@
 #import <objc/runtime.h>
 #import "TPAlgorithmManager.h"
 #import "TPMutiThreadOperation.h"
-
+#import "MISTestClass.h"
 
 #define ItemTitleKey @"title"
 
@@ -88,6 +88,8 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
     
     [tempItems addObject:@{ItemTitleKey:@"testSemaphoreAsyn",ItemActionKey:NSStringFromSelector(@selector(testSemaphoreAsyn))}];
 
+    [tempItems addObject:@{ItemTitleKey:@"testCategory",ItemActionKey:NSStringFromSelector(@selector(testCategory))}];
+    
     self.items = [tempItems copy];
     
 }
@@ -458,6 +460,11 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
 
 - (void)testMutiOpeation {
     [[TPMutiThreadOperation mutiThreadOperation] testFun];
+}
+
+- (void)testCategory {
+    MISTestClassSubA *classA = MISTestClassSubA.new;
+    [classA startFun];
 }
 
 - (void)copyAndMutableCopy {

@@ -84,6 +84,7 @@
 		5A3997322327B2C2007E0F03 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A39972B2327B2C2007E0F03 /* libc++.tbd */; };
 		5A39973423289A1F007E0F03 /* YYModel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5A39973323289A1E007E0F03 /* YYModel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5A39973623289A86007E0F03 /* MISPinyin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A3997122327AD30007E0F03 /* MISPinyin.framework */; };
+		5A571E8523D45D2B00139642 /* MISTestClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A571E8423D45D2B00139642 /* MISTestClass.m */; };
 		5A6A35D320F6E8B200A91097 /* TPTestDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6A35D220F6E8B200A91097 /* TPTestDrawView.m */; };
 		5AE9C3F120BF90A600BDAE3A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9C3F020BF90A600BDAE3A /* AppDelegate.m */; };
 		5AE9C3F920BF90A900BDAE3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AE9C3F820BF90A900BDAE3A /* Assets.xcassets */; };
@@ -261,7 +262,9 @@
 		5A39972D2327B2C2007E0F03 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		5A39972E2327B2C2007E0F03 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		5A39973323289A1E007E0F03 /* YYModel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YYModel.framework; sourceTree = "<group>"; };
-		5A39973523289A1F007E0F03 /* TP_liu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = TP_liu.app; path = "/Users/liu/Desktop/JXT_Git/TP_liu/build/Debug-iphoneos/TP_liu.app"; sourceTree = "<absolute>"; };
+		5A571E8223D45C2600139642 /* TP_liu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TP_liu.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A571E8323D45D2B00139642 /* MISTestClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MISTestClass.h; sourceTree = "<group>"; };
+		5A571E8423D45D2B00139642 /* MISTestClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MISTestClass.m; sourceTree = "<group>"; };
 		5A6A35D120F6E8B200A91097 /* TPTestDrawView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTestDrawView.h; sourceTree = "<group>"; };
 		5A6A35D220F6E8B200A91097 /* TPTestDrawView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTestDrawView.m; sourceTree = "<group>"; };
 		5AE9C3EF20BF90A600BDAE3A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -590,6 +593,7 @@
 			children = (
 				5AE9C3EE20BF90A600BDAE3A /* TP_liu */,
 				5A39970C2327AD30007E0F03 /* Frameworks */,
+				5A571E8223D45C2600139642 /* TP_liu.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -609,6 +613,8 @@
 				5AE9C41920C53D4800BDAE3A /* TPAlgorithmManager.m */,
 				5A13156B22DDB8F900A4257D /* TPMutiThreadOperation.h */,
 				5A13156C22DDB8F900A4257D /* TPMutiThreadOperation.m */,
+				5A571E8323D45D2B00139642 /* MISTestClass.h */,
+				5A571E8423D45D2B00139642 /* MISTestClass.m */,
 				5A0D0EB620E217D900CEEABF /* JLUtil.h */,
 				5A0D0EB720E217D900CEEABF /* JLUtil.m */,
 				5AE9C40820BF90C100BDAE3A /* Views */,
@@ -645,7 +651,7 @@
 			);
 			name = TP_liu;
 			productName = TP_liu;
-			productReference = 5A39973523289A1F007E0F03 /* TP_liu.app */;
+			productReference = 5A571E8223D45C2600139642 /* TP_liu.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -728,6 +734,7 @@
 				5A3996612327A842007E0F03 /* UIAlertView+MISBlock.m in Sources */,
 				5A3997042327A956007E0F03 /* chartsheet.c in Sources */,
 				5A3996532327A842007E0F03 /* UIProgressView+ArcCorner.m in Sources */,
+				5A571E8523D45D2B00139642 /* MISTestClass.m in Sources */,
 				5A3996FF2327A956007E0F03 /* hash_table.c in Sources */,
 				5A3996F02327A956007E0F03 /* zip.c in Sources */,
 				5A39965C2327A842007E0F03 /* UIView+AutoLayout.m in Sources */,
