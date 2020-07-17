@@ -75,7 +75,6 @@
 		5A3997162327AD30007E0F03 /* FMDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A39970E2327AD30007E0F03 /* FMDatabase.framework */; };
 		5A3997182327AD30007E0F03 /* UMMobClick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A3997102327AD30007E0F03 /* UMMobClick.framework */; };
 		5A3997192327AD30007E0F03 /* YYModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A3997112327AD30007E0F03 /* YYModel.framework */; };
-		5A39971B2327AD30007E0F03 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A3997132327AD30007E0F03 /* SDWebImage.framework */; };
 		5A39971C2327AD30007E0F03 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A3997142327AD30007E0F03 /* AFNetworking.framework */; };
 		5A3997202327B113007E0F03 /* YYModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A3997112327AD30007E0F03 /* YYModel.framework */; };
 		5A39972F2327B2C2007E0F03 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A39972D2327B2C2007E0F03 /* libz.tbd */; };
@@ -84,8 +83,8 @@
 		5A3997322327B2C2007E0F03 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A39972B2327B2C2007E0F03 /* libc++.tbd */; };
 		5A39973423289A1F007E0F03 /* YYModel.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5A39973323289A1E007E0F03 /* YYModel.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5A39973623289A86007E0F03 /* MISPinyin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A3997122327AD30007E0F03 /* MISPinyin.framework */; };
-		5A571E8523D45D2B00139642 /* MISTestClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A571E8423D45D2B00139642 /* MISTestClass.m */; };
 		5A4C582D23ABB8DD00CF54F0 /* MISDrawViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4C582C23ABB8DD00CF54F0 /* MISDrawViewController.m */; };
+		5A571E8523D45D2B00139642 /* MISTestClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A571E8423D45D2B00139642 /* MISTestClass.m */; };
 		5A6A35D320F6E8B200A91097 /* TPTestDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6A35D220F6E8B200A91097 /* TPTestDrawView.m */; };
 		5AE9C3F120BF90A600BDAE3A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9C3F020BF90A600BDAE3A /* AppDelegate.m */; };
 		5AE9C3F920BF90A900BDAE3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AE9C3F820BF90A900BDAE3A /* Assets.xcassets */; };
@@ -94,6 +93,7 @@
 		5AE9C40720BF90BA00BDAE3A /* MISTestBlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9C40520BF90BA00BDAE3A /* MISTestBlockView.m */; };
 		5AE9C41A20C53D4800BDAE3A /* TPAlgorithmManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9C41920C53D4800BDAE3A /* TPAlgorithmManager.m */; };
 		5AE9C41C20C5451000BDAE3A /* algorithm.c in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9C41520C53BA900BDAE3A /* algorithm.c */; };
+		7F839BCC24C1532800FF6D2F /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A3997132327AD30007E0F03 /* SDWebImage.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -263,12 +263,12 @@
 		5A39972D2327B2C2007E0F03 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		5A39972E2327B2C2007E0F03 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		5A39973323289A1E007E0F03 /* YYModel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YYModel.framework; sourceTree = "<group>"; };
-		5A571E8223D45C2600139642 /* TP_liu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TP_liu.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5A571E8323D45D2B00139642 /* MISTestClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MISTestClass.h; sourceTree = "<group>"; };
-		5A571E8423D45D2B00139642 /* MISTestClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MISTestClass.m; sourceTree = "<group>"; };
 		5A4C582A23A4F23500CF54F0 /* TP_liu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TP_liu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A4C582B23ABB8DD00CF54F0 /* MISDrawViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MISDrawViewController.h; sourceTree = "<group>"; };
 		5A4C582C23ABB8DD00CF54F0 /* MISDrawViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MISDrawViewController.m; sourceTree = "<group>"; };
+		5A571E8223D45C2600139642 /* TP_liu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TP_liu.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A571E8323D45D2B00139642 /* MISTestClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MISTestClass.h; sourceTree = "<group>"; };
+		5A571E8423D45D2B00139642 /* MISTestClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MISTestClass.m; sourceTree = "<group>"; };
 		5A6A35D120F6E8B200A91097 /* TPTestDrawView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPTestDrawView.h; sourceTree = "<group>"; };
 		5A6A35D220F6E8B200A91097 /* TPTestDrawView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPTestDrawView.m; sourceTree = "<group>"; };
 		5AE9C3EF20BF90A600BDAE3A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -290,6 +290,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F839BCC24C1532800FF6D2F /* SDWebImage.framework in Frameworks */,
 				5A39973623289A86007E0F03 /* MISPinyin.framework in Frameworks */,
 				5A3997182327AD30007E0F03 /* UMMobClick.framework in Frameworks */,
 				5A39971C2327AD30007E0F03 /* AFNetworking.framework in Frameworks */,
@@ -303,7 +304,6 @@
 				5A3997302327B2C2007E0F03 /* libsqlite3.tbd in Frameworks */,
 				5A3997202327B113007E0F03 /* YYModel.framework in Frameworks */,
 				5A3997312327B2C2007E0F03 /* libicucore.tbd in Frameworks */,
-				5A39971B2327AD30007E0F03 /* SDWebImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -913,8 +913,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: 肖 晨 (A6UPK793CP)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = FJ5FELV34L;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TP_liu/Frameworks",
@@ -935,7 +937,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.aspire.TP-liu";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = XcodeWildcardDevelopment;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -944,8 +946,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: 肖 晨 (A6UPK793CP)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = FJ5FELV34L;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TP_liu/Frameworks",
@@ -966,7 +970,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.aspire.TP-liu";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = XcodeWildcardDevelopment;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
