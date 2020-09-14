@@ -15,6 +15,11 @@
 #import "TPAlgorithmManager.h"
 #import "TPMutiThreadOperation.h"
 #import "MISDrawViewController.h"
+#import "MISPerson+TestLoad.h"
+#import "MISPersonMan+TestLoad.h"
+#import "MISPersonManWhite.h"
+#import "MISTestOneViewController.h"
+
 
 #define ItemTitleKey @"title"
 
@@ -55,8 +60,12 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
 
 + (void)initialize {
     NSSLog(@"%s",__func__);
-
 }
+
+- (void)viewWillLayoutSubviews {
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = WHITE_COLOR;
@@ -65,6 +74,9 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
     [self.view addSubview:self.table];
     [self prepareItems];
     [self.table reloadData];
+    char *buf = @encode(int *);
+    printf("buf:%s",buf);
+
 }
 
 
@@ -89,7 +101,13 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
     [tempItems addObject:@{ItemTitleKey:@"testSemaphoreAsyn",ItemActionKey:NSStringFromSelector(@selector(testSemaphoreAsyn))}];
 
     [tempItems addObject:@{ItemTitleKey:@"goDrawViewPage",ItemActionKey:NSStringFromSelector(@selector(goDrawViewPage))}];
+    [tempItems addObject:@{ItemTitleKey:@"testLoad",ItemActionKey:NSStringFromSelector(@selector(testLoad))}];
+
+     [tempItems addObject:@{ItemTitleKey:@"testClass",ItemActionKey:NSStringFromSelector(@selector(testClass))}];
     
+    
+    [tempItems addObject:@{ItemTitleKey:@"testOneViewPage",ItemActionKey:NSStringFromSelector(@selector(testOneViewPage))}];
+
     self.items = [tempItems copy];
     
 }
@@ -119,6 +137,7 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
     [self testArray];
     [self testMutableArray];
     [self copyAndMutableCopy];
+ 
 }
 
 - (void)testStr {
@@ -132,6 +151,7 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
     NSLog(@"str = %@    strCopy = %@    mustr = %@    muCopy = %@",str,strCopy,mustr,muCopy);
     NSLog(@"str地址%p    strCopy地址%p    mustr地址%p     muCopy地址%p",str ,strCopy,mustr,muCopy);
 }
+
 
 - (void)testMutbleStr {
     NSSLog(@"%s",__func__);
@@ -507,6 +527,24 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
     MISDrawViewController * vc = [[MISDrawViewController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
+
+- (void)testLoad {
+//    MISPerson *p = MISPerson.new;
+//    [p printLog];
+    MISPersonMan *p = MISPersonMan.new;
+
+}
+
+- (void)testClass {
+    MISPersonManWhite *pm = MISPersonManWhite.new;
+    [pm testLog];
+}
+
+- (void)testOneViewPage {
+    MISTestOneViewController *vc = MISTestOneViewController.new;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 #pragma mark - Table view data source && delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
