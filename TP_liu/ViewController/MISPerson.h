@@ -10,4 +10,8 @@
 
 @interface MISPerson : NSObject
 
+@property (nonatomic,copy) NSString *name;
+
+- (void)speak;
+
 @end
