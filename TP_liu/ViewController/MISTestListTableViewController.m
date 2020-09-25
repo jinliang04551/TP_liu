@@ -16,6 +16,7 @@
 #import "TPMutiThreadOperation.h"
 #import "MISTestClass.h"
 #import "MISDrawViewController.h"
+#import "MISTestTwoViewController.h"
 
 #define ItemTitleKey @"title"
 
@@ -91,7 +92,10 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
 
     [tempItems addObject:@{ItemTitleKey:@"testCategory",ItemActionKey:NSStringFromSelector(@selector(testCategory))}];
     [tempItems addObject:@{ItemTitleKey:@"goDrawViewPage",ItemActionKey:NSStringFromSelector(@selector(goDrawViewPage))}];
+    [tempItems addObject:@{ItemTitleKey:@"testOCPointer",ItemActionKey:NSStringFromSelector(@selector(testOCPointer))}];
     
+    [tempItems addObject:@{ItemTitleKey:@"goTestTwoPage",ItemActionKey:NSStringFromSelector(@selector(goTestTwoPage))}];
+
     self.items = [tempItems copy];
     
 }
@@ -514,6 +518,33 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
     MISDrawViewController * vc = [[MISDrawViewController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
+
+- (void)testOCPointer {
+    NSString *str = @"XTShowXTShowXTShow";
+    printf("\n1.方法外部：\n指针变量自身地址：%p\n指针变量指向地址：%p\n",&str, str);
+    [self testStr:&str];
+    printf("\n4.方法外部：\n指针变量自身地址：%p\n指针变量指向地址：%p\n",&str, str);
+    NSLog(@"\n5.str:%@",str);
+}
+
+- (void)testStr:(NSString **)str{
+    printf("\n2.方法内部：二重指针\n指针变量自身地址：%p\n指针变量指向地址：%p\n",&str,str);
+    printf("\n3.方法内部：一重指针\n指针变量自身地址：%p\n指针变量指向地址：%p\n",&(*str),*str);
+    *str = ({
+        NSString *str = @"75";
+        str;
+    });
+    
+    
+}
+
+- (void)goTestTwoPage {
+    MISTestTwoViewController * vc = [[MISTestTwoViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+
+
 #pragma mark - Table view data source && delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -545,7 +576,9 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
     NSDictionary *item = self.items[indexPath.row];
     NSString *actionName = item[ItemActionKey];
     SEL action = NSSelectorFromString(actionName);
-    [self performSelector:action];
+    if ([self respondsToSelector:action]) {
+        [self performSelector:action];
+    }
     
 }
 
