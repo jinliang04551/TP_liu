@@ -36,7 +36,7 @@
 
 - (void)testAlgorithm {
 //    [self testBubbleSort];
-//    [self testQuickSort];
+    [self testQuickSort];
     [self testSingleList];
     [self testGetMaxCountOfCharInString];
 }
@@ -64,24 +64,21 @@
 
 - (void)testQuickSort {
     NSLog(@"%s",__func__);
-    int a[] = {23,33,90,29,11,5,45,67};
+    int a[] = {88,33,90,33,29,11,5,45,67};
     int len = sizeof(a) / sizeof(int);
     quick_sort(a, 0, len - 1);
     for (int i = 0; i < len; ++i) {
-        printf("i:%d value:%d\n",i,a[i]);
+        printf("\n i:%d value:%d\n",i,a[i]);
     }
     
    int pos = binarySearch(a, len, 5);
-    printf("pos:%d \n",pos);
+    printf("\n pos:%d \n",pos);
 
 }
 
 
 - (void)testSingleList {
     NSSLog(@"==============================================");
-    NSSLog(@"==============================================");
-    NSSLog(@"==============================================");
-
     singleList_main();
 //    [self testLock];
 }
