@@ -74,9 +74,9 @@ int binarySearch(int *a,int len, int goal) {
 
 
 //int* maxOfThreeMultiply(int a[]){
-//    int result[] = {1,2,3,4,5};
-//    
-//    
-//    
+//    int result[3] = [a[0],a[1],a[2]];
+//
+//
+//
 //    return result;
 //}

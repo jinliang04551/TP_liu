@@ -10,4 +10,6 @@
 
 @interface MISPersonMan (TestLoad)
 
+- (void)run;
+
 @end
