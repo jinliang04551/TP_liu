@@ -9,13 +9,13 @@
 #import "MISPerson+TestLoad.h"
 
 @implementation MISPerson (TestLoad)
-//+ (void)load {
-//    NSSLog(@"%s",__func__);
-//}
-//
-//+ (void)initialize {
-//    NSSLog(@"%s",__func__);
-//}
++ (void)load {
+    NSSLog(@"%s",__func__);
+}
+
++ (void)initialize {
+    NSSLog(@"%s",__func__);
+}
 
 - (void)printLog {
     NSSLog(@"%s",__func__);

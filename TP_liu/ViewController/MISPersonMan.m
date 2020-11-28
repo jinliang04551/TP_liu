@@ -9,12 +9,21 @@
 #import "MISPersonMan.h"
 
 @implementation MISPersonMan
-//+ (void)load {
-//    NSSLog(@"%s",__func__);
-//}
-//
-//+ (void)initialize {
-//    NSSLog(@"%s",__func__);
-//}
++ (void)load {
+    NSSLog(@"%s",__func__);
+}
 
++ (void)initialize {
+    NSSLog(@"%s",__func__);
+}
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        NSLog(@"%@",NSStringFromClass([self class]));
+        NSLog(@"%@",NSStringFromClass([super  class]));
+
+    }
+    return self;
+}
 @end

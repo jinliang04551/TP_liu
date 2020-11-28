@@ -15,9 +15,9 @@ int main(int argc, char * argv[]) {
 //    }
     @autoreleasepool {
         int res = UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
-        NSSLog(@"-----");
+        MISLog(@"-----");
+        NSLog(@"==============main========");
         return res;
-        NSSLog(@"%s",__func__);
 
     }
 }

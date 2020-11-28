@@ -55,9 +55,9 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
 
 
 @implementation MISTestListTableViewController
-+ (void)load {
-    NSSLog(@"%s",__func__);
-}
+//+ (void)load {
+//    NSSLog(@"%s",__func__);
+//}
 
 + (void)initialize {
     NSSLog(@"%s",__func__);
@@ -72,14 +72,31 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
     self.view.backgroundColor = WHITE_COLOR;
     
     self.title = @"列表";
-    [self.view addSubview:self.table];
-    [self prepareItems];
-    [self.table reloadData];
-    char *buf = @encode(int *);
-    printf("buf:%s",buf);
+//    [self.view addSubview:self.table];
+//    [self prepareItems];
+//    [self.table reloadData];
+//    char *buf = @encode(int *);
+//    printf("buf:%s",buf);
 
+     int i =10;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSLog(@"i:%@",@(i));
+    });
+
+    i = 20;
+    
+    [self testInsertNil];
 }
 
+- (void)testInsertNil {
+    NSMutableArray *tempMutableArray = NSMutableArray.new;
+    [tempMutableArray addObject:@"1"];
+    
+    [tempMutableArray insertObject:[NSNull null] atIndex:1];
+    NSLog(@"%s array:%@",__func__,tempMutableArray);
+    
+    
+}
 
 - (void)prepareItems {
     NSMutableArray *tempItems = [NSMutableArray array];
@@ -365,30 +382,39 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
     
     dispatch_async(queue, ^{
         for (int i = 0; i < 3; ++i) {
-            NSLog(@"栅栏 并发异步1%@",[NSThread currentThread]);
+            NSLog(@"并发异步1%@",[NSThread currentThread]);
         }
     });
     
     dispatch_async(queue, ^{
         for (int i = 0; i < 3; ++i) {
-            NSLog(@"栅栏 并发异步2%@",[NSThread currentThread]);
+            NSLog(@"并发异步2%@",[NSThread currentThread]);
         }
     });
     
-    dispatch_barrier_async(queue, ^{
-        NSLog(@"栅栏 并发异步%@",[NSThread currentThread]);
-        NSSLog(@"3,4一定是在1，2之后");
+//    dispatch_barrier_async(queue, ^{
+//        sleep(3);
+//        NSLog(@"异步栅栏%@",[NSThread currentThread]);
+//    });
+    
+    dispatch_barrier_sync(queue, ^{
+        sleep(3);
+        NSLog(@"栅栏 并发同步%@",[NSThread currentThread]);
+    });
+
+    
+    NSSLog(@"等待3秒后 3,4一定是在1，2之后");
+
+    
+    dispatch_async(queue, ^{
+        for (int i = 0; i < 3; ++i) {
+            NSLog(@"并发异步3%@",[NSThread currentThread]);
+        }
     });
     
     dispatch_async(queue, ^{
         for (int i = 0; i < 3; ++i) {
-            NSLog(@"栅栏 并发异步3%@",[NSThread currentThread]);
-        }
-    });
-    
-    dispatch_async(queue, ^{
-        for (int i = 0; i < 3; ++i) {
-            NSLog(@"栅栏 并发异步4%@",[NSThread currentThread]);
+            NSLog(@"并发异步4%@",[NSThread currentThread]);
         }
     });
     
@@ -550,6 +576,8 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
 - (void)testOneViewPage {
     MISTestOneViewController *vc = MISTestOneViewController.new;
     [self.navigationController pushViewController:vc animated:YES];
+    [vc isKindOfClass:[UIViewController class]];
+    [vc isMemberOfClass:[UIViewController class]];
 }
 
 #pragma mark - Table view data source && delegate

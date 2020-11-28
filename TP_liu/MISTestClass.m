@@ -34,6 +34,7 @@
 
 - (void)startFun {
     NSLog(@"%s",__func__);
+    [self superclass];
 }
 
 @end
@@ -73,8 +74,12 @@
 @implementation MISTestClassSubB (Start)
 +(void)load {
     NSLog(@"%s",__func__);
+    [super load];
 }
+
 - (void)startFun {
     NSLog(@"%s",__func__);
+    
 }
+
 @end
