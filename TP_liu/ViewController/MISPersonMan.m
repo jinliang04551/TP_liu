@@ -20,8 +20,8 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        NSLog(@"%@",NSStringFromClass([self class]));
-        NSLog(@"%@",NSStringFromClass([super  class]));
+        NSLog(@"%s [self class]:%@",__func__,NSStringFromClass([self class]));
+        NSLog(@"%s [super  class]:%@",__func__,NSStringFromClass([super  class]));
 
     }
     return self;

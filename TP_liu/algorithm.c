@@ -45,6 +45,8 @@ void quick_sort(int a[], int l, int r) {
             }
         }
         a[i] = x;
+        printf("\n位置%d %d",i,a[i]);
+        
         quick_sort(a, i + 1, r);
         quick_sort(a, l, i - 1);
     }
@@ -61,7 +63,7 @@ int binarySearch(int *a,int len, int goal) {
         
         if (a[middle] == goal) {
             return middle;
-        }else if (middle > goal) {
+        }else if (a[middle] > goal) {
             high = middle -1;
         }else {
             low = middle + 1;
@@ -70,11 +72,3 @@ int binarySearch(int *a,int len, int goal) {
     return -1;
 }
 
-
-//int* maxOfThreeMultiply(int a[]){
-//    int result[] = {1,2,3,4,5};
-//    
-//    
-//    
-//    return result;
-//}

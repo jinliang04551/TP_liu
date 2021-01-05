@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
+#import "MISPerson.h"
 
 int main(int argc, char * argv[]) {
 //    @autoreleasepool {
@@ -20,4 +21,6 @@ int main(int argc, char * argv[]) {
         return res;
 
     }
+
+    
 }

@@ -17,4 +17,9 @@
     NSSLog(@"%s",__func__);
 }
 
+- (void)run {
+    NSSLog(@"%s",__func__);
+}
+
+
 @end

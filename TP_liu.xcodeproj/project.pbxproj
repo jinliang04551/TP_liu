@@ -100,7 +100,9 @@
 		5AE9C40720BF90BA00BDAE3A /* MISTestBlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9C40520BF90BA00BDAE3A /* MISTestBlockView.m */; };
 		5AE9C41A20C53D4800BDAE3A /* TPAlgorithmManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9C41920C53D4800BDAE3A /* TPAlgorithmManager.m */; };
 		5AE9C41C20C5451000BDAE3A /* algorithm.c in Sources */ = {isa = PBXBuildFile; fileRef = 5AE9C41520C53BA900BDAE3A /* algorithm.c */; };
+		5AF120D725A416E200E55A80 /* CombineSort.c in Sources */ = {isa = PBXBuildFile; fileRef = 5AF120D625A416E200E55A80 /* CombineSort.c */; };
 		7F839BCC24C1532800FF6D2F /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A3997132327AD30007E0F03 /* SDWebImage.framework */; };
+		7FFDE4EB24FA9CDE0049EA39 /* MISTestTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FFDE4EA24FA9CDE0049EA39 /* MISTestTwoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -304,6 +306,10 @@
 		5AE9C41620C53BA900BDAE3A /* algorithm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = algorithm.h; sourceTree = "<group>"; };
 		5AE9C41820C53D4800BDAE3A /* TPAlgorithmManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAlgorithmManager.h; sourceTree = "<group>"; };
 		5AE9C41920C53D4800BDAE3A /* TPAlgorithmManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAlgorithmManager.m; sourceTree = "<group>"; };
+		5AF120D525A416E200E55A80 /* CombineSort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CombineSort.h; sourceTree = "<group>"; };
+		5AF120D625A416E200E55A80 /* CombineSort.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = CombineSort.c; sourceTree = "<group>"; };
+		7FFDE4E924FA9CDE0049EA39 /* MISTestTwoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MISTestTwoViewController.h; sourceTree = "<group>"; };
+		7FFDE4EA24FA9CDE0049EA39 /* MISTestTwoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MISTestTwoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -608,6 +614,8 @@
 				5A618D0824E2DA7C008223E1 /* MISPersonMan+TestLoad.m */,
 				5A4C582B23ABB8DD00CF54F0 /* MISDrawViewController.h */,
 				5A4C582C23ABB8DD00CF54F0 /* MISDrawViewController.m */,
+				7FFDE4E924FA9CDE0049EA39 /* MISTestTwoViewController.h */,
+				7FFDE4EA24FA9CDE0049EA39 /* MISTestTwoViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -649,6 +657,8 @@
 				5A6A35D420F6E8C500A91097 /* ViewController */,
 				5AE9C41620C53BA900BDAE3A /* algorithm.h */,
 				5AE9C41520C53BA900BDAE3A /* algorithm.c */,
+				5AF120D525A416E200E55A80 /* CombineSort.h */,
+				5AF120D625A416E200E55A80 /* CombineSort.c */,
 				5A0D108F21413291005FE672 /* SingleLinkList.h */,
 				5A0D108E21413291005FE672 /* SingleLinkList.c */,
 				5AE9C41820C53D4800BDAE3A /* TPAlgorithmManager.h */,
@@ -760,6 +770,7 @@
 				5A39965F2327A842007E0F03 /* UIScrollView+AutoLayout.m in Sources */,
 				5A3996F82327A956007E0F03 /* core.c in Sources */,
 				5A3996EE2327A956007E0F03 /* Reachability.m in Sources */,
+				7FFDE4EB24FA9CDE0049EA39 /* MISTestTwoViewController.m in Sources */,
 				5A618D0024E2D9EB008223E1 /* MISPerson.m in Sources */,
 				5A39965D2327A842007E0F03 /* NSDictionary+MISSafe.m in Sources */,
 				5A3996622327A842007E0F03 /* UIActionSheet+MISBlock.m in Sources */,
@@ -805,6 +816,7 @@
 				5A39965A2327A842007E0F03 /* NSString+MISLength.m in Sources */,
 				5A3996632327A842007E0F03 /* UITextView+AutoLayout.m in Sources */,
 				5A3996572327A842007E0F03 /* UITableView+HiddenExtraCellLine.m in Sources */,
+				5AF120D725A416E200E55A80 /* CombineSort.c in Sources */,
 				5A3996F32327A956007E0F03 /* shared_strings.c in Sources */,
 				5A3996652327A842007E0F03 /* MISCategories.m in Sources */,
 				5A3997012327A956007E0F03 /* relationships.c in Sources */,

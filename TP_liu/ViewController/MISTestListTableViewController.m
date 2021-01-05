@@ -16,10 +16,12 @@
 #import "TPMutiThreadOperation.h"
 #import "MISTestClass.h"
 #import "MISDrawViewController.h"
+#import "MISTestTwoViewController.h"
 #import "MISPerson+TestLoad.h"
 #import "MISPersonMan+TestLoad.h"
 #import "MISPersonManWhite.h"
 #import "MISTestOneViewController.h"
+#import "MISPerson.h"
 
 
 #define ItemTitleKey @"title"
@@ -51,6 +53,12 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
 
 @property (nonatomic, strong)HLThread *subThread;
 
+@property (nonatomic, copy) NSMutableArray *oriMutableArray;
+
+@property (nonatomic, copy) NSMutableArray *mutableArray;
+
+@property (nonatomic, copy) NSArray *iMutableArray;
+
 @end
 
 
@@ -72,20 +80,20 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
     self.view.backgroundColor = WHITE_COLOR;
     
     self.title = @"列表";
-//    [self.view addSubview:self.table];
-//    [self prepareItems];
-//    [self.table reloadData];
-//    char *buf = @encode(int *);
-//    printf("buf:%s",buf);
+    [self.view addSubview:self.table];
+    [self prepareItems];
+    [self.table reloadData];
+    char *buf = @encode(int *);
+    printf("buf:%s",buf);
 
-     int i =10;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        NSLog(@"i:%@",@(i));
-    });
-
-    i = 20;
-    
-    [self testInsertNil];
+//     int i =10;
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        NSLog(@"i:%@",@(i));
+//    });
+//
+//    i = 20;
+//    
+//    [self testInsertNil];
 }
 
 - (void)testInsertNil {
@@ -120,13 +128,27 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
 
     [tempItems addObject:@{ItemTitleKey:@"testCategory",ItemActionKey:NSStringFromSelector(@selector(testCategory))}];
     [tempItems addObject:@{ItemTitleKey:@"goDrawViewPage",ItemActionKey:NSStringFromSelector(@selector(goDrawViewPage))}];
+    [tempItems addObject:@{ItemTitleKey:@"testOCPointer",ItemActionKey:NSStringFromSelector(@selector(testOCPointer))}];
+
     [tempItems addObject:@{ItemTitleKey:@"testLoad",ItemActionKey:NSStringFromSelector(@selector(testLoad))}];
 
      [tempItems addObject:@{ItemTitleKey:@"testClass",ItemActionKey:NSStringFromSelector(@selector(testClass))}];
     
-    
-    [tempItems addObject:@{ItemTitleKey:@"testOneViewPage",ItemActionKey:NSStringFromSelector(@selector(testOneViewPage))}];
 
+    [tempItems addObject:@{ItemTitleKey:@"goTestTwoPage",ItemActionKey:NSStringFromSelector(@selector(goTestTwoPage))}];
+
+    [tempItems addObject:@{ItemTitleKey:@"testOneViewPage",ItemActionKey:NSStringFromSelector(@selector(testOneViewPage))}];
+    [tempItems addObject:@{ItemTitleKey:@"testWeakBlock",ItemActionKey:NSStringFromSelector(@selector(testWeakBlock))}];
+
+    [tempItems addObject:@{ItemTitleKey:@"testLocalObjBlock",ItemActionKey:NSStringFromSelector(@selector(testLocalObjBlock))}];
+
+    [tempItems addObject:@{ItemTitleKey:@"testPropertyCopy",ItemActionKey:NSStringFromSelector(@selector(testPropertyCopy))}];
+
+    [tempItems addObject:@{ItemTitleKey:@"testStringEqual",ItemActionKey:NSStringFromSelector(@selector(testStringEqual))}];
+
+    [tempItems addObject:@{ItemTitleKey:@"testNSSet",ItemActionKey:NSStringFromSelector(@selector(testNSSet))}];
+
+    
     self.items = [tempItems copy];
     
 }
@@ -561,6 +583,31 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+- (void)testOCPointer {
+    NSString *str = @"XTShowXTShowXTShow";
+    printf("\n1.方法外部：\n指针变量自身地址：%p\n指针变量指向地址：%p\n",&str, str);
+    [self testStr:&str];
+    printf("\n4.方法外部：\n指针变量自身地址：%p\n指针变量指向地址：%p\n",&str, str);
+    NSLog(@"\n5.str:%@",str);
+}
+
+- (void)testStr:(NSString **)str{
+    printf("\n2.方法内部：二重指针\n指针变量自身地址：%p\n指针变量指向地址：%p\n",&str,str);
+    printf("\n3.方法内部：一重指针\n指针变量自身地址：%p\n指针变量指向地址：%p\n",&(*str),*str);
+    *str = ({
+        NSString *str = @"75";
+        str;
+    });
+    
+    
+}
+
+- (void)goTestTwoPage {
+    MISTestTwoViewController * vc = [[MISTestTwoViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+
 - (void)testLoad {
 //    MISPerson *p = MISPerson.new;
 //    [p printLog];
@@ -611,7 +658,9 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
     NSDictionary *item = self.items[indexPath.row];
     NSString *actionName = item[ItemActionKey];
     SEL action = NSSelectorFromString(actionName);
-    [self performSelector:action];
+    if ([self respondsToSelector:action]) {
+        [self performSelector:action];
+    }
     
 }
 
@@ -631,7 +680,78 @@ static NSString *UITableViewCellIndetifier = @"UITableViewCell";
     return _table;
 }
 
+- (void)testWeakBlock {
+    void (^__weak dowork)(void) = nil;
+    {
+    int a = 0;
+    void(^dowork1)(void) = ^{
+        a;
+        NSLog(@"dowork1");
+    };
+    dowork = dowork1;
+    }
+    dowork;
+}
 
+- (void)testLocalObjBlock {
+    __block MISPerson *person = MISPerson.new;
+    person.name = @"person_block";
+    
+    void(^dowork1)(void) = ^{
+        person.name = @"person_modify_name";
+        
+        NSLog(@"%s dowork1 person.name:%@",__func__,person.name);
+    };
+    
+    dowork1();
+    
+}
+
+- (void)testPropertyCopy {
+    
+//    NSMutableArray *tempArray = [NSMutableArray new];
+    
+    NSArray *tempImutableArray = [NSArray arrayWithObjects:@"1",@"2", nil];
+    
+    self.mutableArray = [tempImutableArray mutableCopy];
+    
+//    [self.mutableArray addObject:@"4"];
+
+    self.iMutableArray = tempImutableArray;
+
+    NSLog(@"sourceAdd:%p",tempImutableArray);
+    
+    NSLog(@"%s iMutableArray:%p mutableArray:%p",__func__,self.iMutableArray,self.mutableArray);
+
+    NSLog(@"%s iMutableArray%@ ：mutableArray:%@",__func__,self.iMutableArray,self.mutableArray);
+
+}
+
+- (void)testStringEqual {
+    NSString *str1 = @"icbc";
+    NSString *str2 = [NSString stringWithFormat:@"str1"];
+    NSString *str3 = @"icbc";
+    NSLog(@"str1 == str2 --- %d", str1 == str2);
+    NSLog(@"str1 == str3 --- %d", str1 == str3);
+    NSLog(@"str1 isEqualToString str2 --- %d", [str1 isEqualToString:str2]);
+    NSLog(@"str1 isEqualToString str3 --- %d", [str1 isEqualToString:str3]);
+}
+
+- (void)testNSSet {
+    MISPerson *p1 = MISPerson.new;
+    p1.name = @"1";
+    MISPerson *p2 = MISPerson.new;
+    p2.name= @"2";
+    MISPerson *p3 = MISPerson.new;
+    p3.name= @"3";
+
+    NSSet *tempSet = [NSSet setWithArray:@[p1,p2,p3,p3]];
+    [tempSet enumerateObjectsUsingBlock:^(id  _Nonnull obj, BOOL * _Nonnull stop) {
+        MISPerson *p = obj;
+        NSLog(@"obj:%@",p.name);
+    }];
+    
+}
 @end
 
 #undef ItemTitleKey

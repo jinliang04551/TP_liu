@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "TPAlgorithmManager.h"
 #import "MISTestListTableViewController.h"
+#import "MISPerson.h"
 
 @interface AppDelegate ()
 
@@ -32,10 +33,20 @@
     self.window.rootViewController = nav;
     
     [self.window makeKeyAndVisible];
-   
+    
+//    [self testClass];
+    
     return YES;
 }
 
+- (void)testClass {
+    BOOL res1 = [(id)[NSObject class] isKindOfClass:[NSObject class]];
+    BOOL res2 = [(id)[NSObject class] isMemberOfClass:[NSObject class]];
+    BOOL res3 = [(id)[MISPerson class] isKindOfClass:[MISPerson class]];
+    BOOL res4 = [(id)[MISPerson class] isMemberOfClass:[MISPerson class]];
+    NSLog(@"%s %d %d %d %d", __func__,res1, res2, res3, res4);
+
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
